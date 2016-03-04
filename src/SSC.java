@@ -12,4 +12,7 @@ public class SSC {
         f.setVisible(true);
     }
     
+    public void myah(){
+        Interface.addRect();
+    }
 }
