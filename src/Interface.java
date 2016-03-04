@@ -2,22 +2,67 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import java.awt.event.*;
 
-public class Interface extends JPanel{
+public class Interface extends JPanel implements MouseListener, MouseMotionListener, KeyListener{
     
-    public List<Shape> shapes = new ArrayList<>();
+//    public List<Shape> shapes = new ArrayList<>();
+    public static boolean var = true;
     
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-        for(Shape s : shapes){
-            g2d.draw(s);
+        if (var){
+            addMouseListener(this);
+            addMouseMotionListener(this);
+            addKeyListener(this);
+            var = false;
+        }
+        if (SSC.mode.equals("Solve")){
+            
+        }if (SSC.mode.equals("Create")){
+            
         }
     }
     
-    public void addRect() {
-        shapes.add(new Rectangle(100,100,100,100));
-        repaint();
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        System.out.println(e.getKeyChar());
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 }

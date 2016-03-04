@@ -3,6 +3,8 @@ import javax.swing.*;
 
 public class SSC {
     
+    public static String mode = "Solve";
+    
     public static void main(String[] args) {
         JFrame f=new JFrame("");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -10,9 +12,5 @@ public class SSC {
         f.add(ui);
         f.setSize(1200,720);
         f.setVisible(true);
-    }
-    
-    public void myah(){
-        Interface.addRect();
     }
 }
