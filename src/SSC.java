@@ -10,7 +10,6 @@ public class SSC {
         f.add(ui);
         f.setSize(1200,720);
         f.setVisible(true);
-        Interface.var=100;
     }
     
 }
