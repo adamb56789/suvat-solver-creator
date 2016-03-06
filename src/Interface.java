@@ -1,36 +1,53 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JComponent;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
-public class Interface extends JComponent {
+public class Interface extends JComponent implements MouseListener, MouseMotionListener{
 
-    public int x = 50;
-    public int y = 50;
+    int x;
+    int y;
+    boolean calculator = true;
 
+    @Override
     public void paintComponent(Graphics g) {
+        addMouseListener(this);
+        addMouseMotionListener(this);
         super.paintComponent(g);
-        g.drawRect(x, y, 50, 50);
-        g.fillRect(x, y, 50, 50);
-        g.setColor(Color.BLACK);
+        
+        //Calculator mode
+        if(calculator){
+            
+        }
+        
+        //Creation mode
+        if(!calculator){
+            
+        }
     }
 
-    public void moveRight() {
-        x = x + 5;
-        repaint();
+    @Override
+    public void mouseClicked(MouseEvent e) {}
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
     }
 
-    public void moveLeft() {
-        x = x - 5;
-        repaint();
-    }
+    @Override
+    public void mouseReleased(MouseEvent e) {}
 
-    public void moveDown() {
-        y = y + 5;
-        repaint();
-    }
+    @Override
+    public void mouseEntered(MouseEvent e) {}
 
-    public void moveUp() {
-        y = y - 5;
-        repaint();
+    @Override
+    public void mouseExited(MouseEvent e) {}
+
+    @Override
+    public void mouseDragged(MouseEvent e) {}
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        x = e.getX();
+        y = e.getY();
     }
 }

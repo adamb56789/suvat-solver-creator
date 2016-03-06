@@ -8,25 +8,13 @@ public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("keyPressed");
-    }
-
+    public void keyPressed(KeyEvent e) {}
+    
     @Override
-    public void keyReleased(KeyEvent e) {
-        if(e.getKeyCode()== KeyEvent.VK_RIGHT)
-            draw.moveRight();
-        else if(e.getKeyCode()== KeyEvent.VK_LEFT)
-            draw.moveLeft();
-        else if(e.getKeyCode()== KeyEvent.VK_DOWN)
-            draw.moveDown();
-        else if(e.getKeyCode()== KeyEvent.VK_UP)
-            draw.moveUp();
-
-    }
+    public void keyReleased(KeyEvent e) {}
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("keyTyped");
+        System.out.println(Character.getNumericValue(e.getKeyChar()));
     }
 
     public SSC(){
@@ -51,5 +39,12 @@ public class SSC extends JFrame implements KeyListener{
                 frame.setVisible(true);
             }
         });
+    }
+    
+    public static boolean over(int x1, int x2, int y1, int y2, int x, int y){
+        if(x1<x&&x<x2&&y1<y&&y<y2){
+            return true;
+        }
+        return false;
     }
 }
