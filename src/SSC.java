@@ -5,12 +5,14 @@ import javax.swing.JFrame;
 
 
 public class SSC extends JFrame implements KeyListener{
-    private Interface draw;
+    private final Interface draw;
 
+    @Override
     public void keyPressed(KeyEvent e) {
         System.out.println("keyPressed");
     }
 
+    @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyCode()== KeyEvent.VK_RIGHT)
             draw.moveRight();
@@ -22,6 +24,7 @@ public class SSC extends JFrame implements KeyListener{
             draw.moveUp();
 
     }
+    @Override
     public void keyTyped(KeyEvent e) {
         System.out.println("keyTyped");
     }
@@ -35,6 +38,7 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 SSC frame = new SSC();
                 frame.setTitle("Square Move Practice");
