@@ -7,6 +7,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     int x;
     int y;
     boolean calculator = true;
+    String atex;
 
     @Override
     public void paintComponent(Graphics g) {
