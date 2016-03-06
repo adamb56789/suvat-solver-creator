@@ -1,68 +1,36 @@
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JComponent;
 
-public class Interface extends JPanel implements MouseListener, MouseMotionListener, KeyListener{
-    
-//    public List<Shape> shapes = new ArrayList<>();
-    public static boolean var = true;
-    
-    @Override
+public class Interface extends JComponent {
+
+    public int x = 50;
+    public int y = 50;
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (var){
-            addMouseListener(this);
-            addMouseMotionListener(this);
-            addKeyListener(this);
-            var = false;
-        }
-        if (SSC.mode.equals("Solve")){
-            
-        }if (SSC.mode.equals("Create")){
-            
-        }
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent e) {
+        g.drawRect(x, y, 50, 50);
+        g.fillRect(x, y, 50, 50);
+        g.setColor(Color.BLACK);
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
+    public void moveRight() {
+        x = x + 5;
+        repaint();
     }
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
+    public void moveLeft() {
+        x = x - 5;
+        repaint();
     }
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
+    public void moveDown() {
+        y = y + 5;
+        repaint();
     }
 
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        System.out.println(e.getKeyChar());
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+    public void moveUp() {
+        y = y - 5;
+        repaint();
     }
 }
