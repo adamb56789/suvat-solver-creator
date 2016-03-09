@@ -25,6 +25,10 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
+        String[] array;
+        array = new String[10];
+        System.out.println(array[0]);
+        
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
