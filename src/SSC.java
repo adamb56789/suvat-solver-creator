@@ -27,6 +27,8 @@ public class SSC extends JFrame implements KeyListener{
     public static void main(String[] args) {
         String[] array;
         array = new String[10];
+        array[0]="1";
+        array[0]=null;
         System.out.println(array[0]);
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -35,8 +37,8 @@ public class SSC extends JFrame implements KeyListener{
                 SSC frame = new SSC();
                 frame.setTitle("Square Move Practice");
                 frame.setResizable(false);
-                frame.setSize(600, 600);
-                frame.setMinimumSize(new Dimension(600, 600));
+                frame.setSize(1300, 750);
+                frame.setMinimumSize(new Dimension(1300, 750));
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.getContentPane().add(frame.draw);
                 frame.pack();
