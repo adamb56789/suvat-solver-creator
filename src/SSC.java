@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 
 public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
+    public static String[][] input;
+    public static String highlighted; //"s", "u", "v", "a", "t", " ", 
 
     @Override
     public void keyPressed(KeyEvent e) {}
@@ -25,11 +27,7 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        String[] array;
-        array = new String[10];
-        array[0]="1";
-        array[0]=null;
-        System.out.println(array[0]);
+        input = new String[4][63];
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -52,5 +50,9 @@ public class SSC extends JFrame implements KeyListener{
             return true;
         }
         return false;
+    }
+    
+    public static double solve(){
+        return 0;
     }
 }
