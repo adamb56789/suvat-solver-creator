@@ -7,7 +7,11 @@ import javax.swing.JFrame;
 public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
     public static String[][] input;
-    public static String highlighted; //"s", "u", "v", "a", "t", " ", 
+    public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
+    public static String latex="";
+    public static String find="";
+    public static boolean solveMode = true;
+    
 
     @Override
     public void keyPressed(KeyEvent e) {}
@@ -27,7 +31,13 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        input = new String[4][63];
+        input = new String[5][64];
+        input[0][0]="DATA";
+        reset(input[0]);
+        if(containsData(input[0])){
+            System.out.println("--> null <--");
+            throw new NullPointerException();
+        }
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -51,10 +61,6 @@ public class SSC extends JFrame implements KeyListener{
         return false;
     }
     
-    public static double solve(){
-        return 0;
-    }
-    
     public static boolean containsData(String[] array){
         for(int i=0;i<array.length;i++){
             if(array[i]!=null){
@@ -64,7 +70,7 @@ public class SSC extends JFrame implements KeyListener{
         return false;
     }
     
-    public static void reset(String[] array, byte value){
+    public static void reset(String[] array){
       int len = array.length;
 
       if (len > 0){
@@ -76,4 +82,36 @@ public class SSC extends JFrame implements KeyListener{
         System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
       }
 }
+    
+    public static String solve(){
+        String m="";
+        for(int i=0;i<5;i++){
+            if(containsData(input[i])){
+                switch(i){
+                    case 0: m+="s";
+                        break;
+                    case 1: m+="u";
+                        break;
+                    case 2: m+="v";
+                        break;
+                    case 3: m+="a";
+                        break;
+                    case 4: m+="t";
+                        break;
+                }
+            }
+        }
+        System.out.println(m);
+        
+        //Checking too see if valid data was entered
+        if(m.length()!=3||find.equals("")){
+            return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known!";
+        }
+        for(int i=0;i<m.length();i++){
+            if(m.charAt(i)==find.charAt(0)){
+                return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known!";
+            }
+        }
+        return "Error";
+    }
 }
