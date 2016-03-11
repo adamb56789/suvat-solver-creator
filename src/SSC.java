@@ -28,7 +28,6 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[4][63];
-        
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -55,4 +54,26 @@ public class SSC extends JFrame implements KeyListener{
     public static double solve(){
         return 0;
     }
+    
+    public static boolean containsData(String[] array){
+        for(int i=0;i<array.length;i++){
+            if(array[i]!=null){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void reset(String[] array, byte value){
+      int len = array.length;
+
+      if (len > 0){
+        array[0] = null;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+}
 }
