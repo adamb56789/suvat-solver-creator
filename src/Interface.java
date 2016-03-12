@@ -21,16 +21,18 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             
         }
         //Paint the LaTeX
-        TeXFormula formula = new TeXFormula(SSC.latex);
-	TeXIcon icon = formula.new TeXIconBuilder().setStyle(TeXConstants.STYLE_DISPLAY).setSize(20).build();
-	BufferedImage image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
-	Graphics2D g2 = image.createGraphics();
-	g2.setColor(Color.white);
-	g2.fillRect(0,0,icon.getIconWidth(),icon.getIconHeight());
-	JLabel jl = new JLabel();
-	jl.setForeground(new Color(0, 0, 0));
-	icon.paintIcon(jl, g2, 0, 0);
-        g.drawImage(image, 875, 75, this);
+        if(!"".equals(SSC.latex)){
+            TeXFormula formula = new TeXFormula(SSC.latex);
+            TeXIcon icon = formula.new TeXIconBuilder().setStyle(TeXConstants.STYLE_DISPLAY).setSize(20).build();
+            BufferedImage image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = image.createGraphics();
+            g2.setColor(Color.white);
+            g2.fillRect(0,0,icon.getIconWidth(),icon.getIconHeight());
+            JLabel jl = new JLabel();
+            jl.setForeground(new Color(0, 0, 0));
+            icon.paintIcon(jl, g2, 0, 0);
+            g.drawImage(image, 875, 75, this);
+        }
         //End of painting the LaTeX
     }
 
@@ -41,9 +43,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
+    public void mousePressed(MouseEvent e) {}
 
     @Override
     public void mouseReleased(MouseEvent e) {}

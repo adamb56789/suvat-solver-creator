@@ -32,7 +32,6 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[5][64];
-        input[0][0]="DATA";
         reset(input[0]);
         if(containsData(input[0])){
             System.out.println("--> null <--");
@@ -111,6 +110,29 @@ public class SSC extends JFrame implements KeyListener{
             if(m.charAt(i)==find.charAt(0)){
                 return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known!";
             }
+        }
+        
+        switch(m){
+            case "sat": if(m=="u"){}else if(m=="v"){}
+                break;
+            case "sut": 
+                break;
+            case "svt": 
+                break;
+            case "sua": 
+                break;
+            case "sva": 
+                break;
+            case "suv": 
+                break;
+            case "uvt": 
+                break;
+            case "uat": 
+                break;
+            case "uva": 
+                break;
+            case "vat": 
+                break;
         }
         return "Error";
     }
