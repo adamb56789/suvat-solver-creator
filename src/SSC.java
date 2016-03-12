@@ -15,7 +15,6 @@ public class SSC extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {}
-    
     @Override
     public void keyReleased(KeyEvent e) {}
     @Override
@@ -32,7 +31,6 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[5][64];
-        reset(input[0]);
         if(containsData(input[0])){
             System.out.println("--> null <--");
             throw new NullPointerException();
@@ -82,7 +80,19 @@ public class SSC extends JFrame implements KeyListener{
       }
 }
     
+    public static int nNotNull(String[] s){
+        int a=0;
+        while(true){
+            if(s[a]==null){
+                return a;
+            }
+            a++;
+        }
+    }
+    
     public static String solve(){
+        
+        //Getting the list of entered values
         String m="";
         for(int i=0;i<5;i++){
             if(containsData(input[i])){
@@ -112,27 +122,48 @@ public class SSC extends JFrame implements KeyListener{
             }
         }
         
+        //Turning the input array into numbers
+        double s=0;
+        double u=0;
+        double v=0;
+        double a=0;
+        double t=0;
+        String[] merged={"","","","",""};
+        for (int i=0;i<5;i++) {
+            if (containsData(input[i])) {
+                for (int j = 0; j < nNotNull(input[i]); j++) {
+                    merged[i] += input[i][j];
+                }
+            }
+        }
+        if(!"".equals(merged[0])){
+            s=Double.parseDouble(merged[0]);
+        }
+        if(!"".equals(merged[1])){
+            u=Double.parseDouble(merged[1]);
+        }
+        if(!"".equals(merged[2])){
+            v=Double.parseDouble(merged[2]);
+        }
+        if(!"".equals(merged[3])){
+            a=Double.parseDouble(merged[3]);
+        }
+        if(!"".equals(merged[4])){
+            t=Double.parseDouble(merged[4]);
+        }
+        
+        //send the values to the approriate solve method, and return the solution
         switch(m){
-            case "sat": if(m=="u"){}else if(m=="v"){}
-                break;
-            case "sut": 
-                break;
-            case "svt": 
-                break;
-            case "sua": 
-                break;
-            case "sva": 
-                break;
-            case "suv": 
-                break;
-            case "uvt": 
-                break;
-            case "uat": 
-                break;
-            case "uva": 
-                break;
-            case "vat": 
-                break;
+            case "sat": if("u".equals(m)){return solve.sat_u(s,a,t);}else if("v".equals(m)){return solve.sat_v(s,a,t);}else{return "Error";}
+            case "sut": if("v".equals(m)){return solve.sut_v(s,u,t);}else if("a".equals(m)){return solve.sut_a(s,u,t);}else{return "Error";}
+            case "svt": if("u".equals(m)){return solve.svt_u(s,v,t);}else if("a".equals(m)){return solve.svt_a(s,v,t);}else{return "Error";}
+            case "sua": if("v".equals(m)){return solve.sua_v(s,u,a);}else if("t".equals(m)){return solve.sua_t(s,u,a);}else{return "Error";}
+            case "sva": if("u".equals(m)){return solve.sva_u(s,v,a);}else if("t".equals(m)){return solve.sva_t(s,v,a);}else{return "Error";}
+            case "suv": if("a".equals(m)){return solve.suv_a(s,u,v);}else if("t".equals(m)){return solve.suv_t(s,u,v);}else{return "Error";}
+            case "uvt": if("s".equals(m)){return solve.uvt_s(u,v,t);}else if("a".equals(m)){return solve.uvt_a(u,v,t);}else{return "Error";}
+            case "uat": if("s".equals(m)){return solve.uat_s(u,a,t);}else if("v".equals(m)){return solve.uat_v(u,a,t);}else{return "Error";}
+            case "uva": if("s".equals(m)){return solve.uva_s(u,v,a);}else if("t".equals(m)){return solve.uva_t(u,v,a);}else{return "Error";}
+            case "vat": if("s".equals(m)){return solve.vat_s(v,a,t);}else if("u".equals(m)){return solve.vat_u(v,a,t);}else{return "Error";}
         }
         return "Error";
     }
