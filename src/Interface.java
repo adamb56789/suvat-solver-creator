@@ -18,14 +18,15 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Graphics2D g2 = (Graphics2D) g;
         
         if(SSC.solveMode){
-            g2.setColor(Color.MAGENTA);
+            g2.setColor(Color.darkGray);
             g2.setStroke(new BasicStroke(2));
             g2.draw(new Line2D.Float(1, 1, 1, 750));
             g2.draw(new Line2D.Float(1, 1, 433, 1));
             g2.draw(new Line2D.Float(433, 1, 433, 93));
-            
-            g2.setStroke(new BasicStroke(3));
+            g2.draw(new Line2D.Float(433, 93, 1350, 93));
             g2.draw(new Line2D.Float(875, 1, 875, 1350));
+            g2.draw(new Line2D.Float(1, 650, 875, 650));
+            g2.draw(new Line2D.Float(1, 720, 875, 720));
         }else{
             
         }

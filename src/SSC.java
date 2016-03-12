@@ -39,7 +39,7 @@ public class SSC extends JFrame implements KeyListener{
             @Override
             public void run() {
                 SSC frame = new SSC();
-                frame.setTitle("Square Move Practice");
+                frame.setTitle("SSC");
                 frame.setResizable(false);
                 frame.setSize(1300, 750);
                 frame.setMinimumSize(new Dimension(1300, 750));
@@ -47,6 +47,7 @@ public class SSC extends JFrame implements KeyListener{
                 frame.getContentPane().add(frame.draw);
                 frame.pack();
                 frame.setVisible(true);
+                frame.getContentPane().setBackground(Color.decode("#F3F3F3"));
             }
         });
     }
