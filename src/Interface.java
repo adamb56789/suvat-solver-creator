@@ -20,23 +20,27 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Image gradient;
         gradient=new ImageIcon("Images/gradient.png").getImage();
         
-        g.drawImage(gradient, 0, 0, this);
-        
         if(SSC.solveMode){
-            g2.setStroke(new BasicStroke(1));
-            g2.setColor(Color.darkGray);
-            g2.draw(new Line2D.Float(875, 0, 875, 93));
-            g2.draw(new Line2D.Float(875, 93, 1350, 93));
-            g2.draw(new Line2D.Float(1025, 0, 1025, 93));
+//            g2.setStroke(new BasicStroke(1));          
+            
+            g.drawImage(gradient, 0, -20, this);
+            g.drawImage(gradient, 433, 93, 442, -93, this);
+            g2.setColor(Color.decode("#D8D8D8"));
+            //g2.fillRect(433,0,442,93);
             
             g2.setColor(Color.decode("#778899"));
             g2.fillRect(876, 0, 149, 93);
             g2.fillRect(876, 94, 475, 657);
             
             g2.setColor(Color.darkGray);
-            g2.draw(new Line2D.Float(0, 0, 433, 0));
+            g2.draw(new Line2D.Float(875, 0, 875, 93));
+            g2.draw(new Line2D.Float(875, 93, 1350, 93));
+            g2.draw(new Line2D.Float(1025, 0, 1025, 93));
+            g2.setStroke(new BasicStroke(2));
+            g2.draw(new Line2D.Float(0, 1, 433, 1));
             g2.draw(new Line2D.Float(433, 0, 433, 93));
             g2.draw(new Line2D.Float(433, 93, 875, 93));
+            g2.setStroke(new BasicStroke(1));
             g2.draw(new Line2D.Float(875, 93, 875, 650));
             g2.draw(new Line2D.Float(0, 650, 875, 650));
             g2.draw(new Line2D.Float(875, 650, 875, 720));
@@ -50,6 +54,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             Font big=new Font("Segeo UI", Font.PLAIN, 36);
             g.setFont(big);
             g.drawString("Solver", 155, 55);
+            g.drawString("Creator", 590, 55);
         }else{
             
         }
