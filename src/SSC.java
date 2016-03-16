@@ -8,7 +8,7 @@ public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
     public static String[][] input;
     public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
-    public static String latex="";
+    public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static boolean solveMode = true;
     
@@ -46,6 +46,7 @@ public class SSC extends JFrame implements KeyListener{
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.getContentPane().add(frame.draw);
                 frame.pack();
+                frame.setLocationRelativeTo(frame);
                 frame.setVisible(true);
                 frame.getContentPane().setBackground(Color.decode("#F3F3F3"));
             }
@@ -115,11 +116,11 @@ public class SSC extends JFrame implements KeyListener{
         
         //Checking too see if valid data was entered
         if(m.length()!=3||find.equals("")){
-            return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known!";
+            return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known";
         }
         for(int i=0;i<m.length();i++){
             if(m.charAt(i)==find.charAt(0)){
-                return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known!";
+                return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known";
             }
         }
         
