@@ -48,13 +48,33 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g2.draw(new Line2D.Float(0, 721, 0, 650));
             
             //Input boxes
-            g2.draw(new Line2D.Float());
+            g.drawRect(300, 160, 200, 30);
+            g.drawRect(300, 260, 200, 30);
+            g.drawRect(300, 360, 200, 30);
+            g.drawRect(300, 460, 200, 30);
+            g.drawRect(300, 560, 200, 30);
+            g.setColor(Color.white);
+            g.fillRect(301,161,199,29);
+            g.fillRect(301,261,199,29);
+            g.fillRect(301,361,199,29);
+            g.fillRect(301,461,199,29);
+            g.fillRect(301,561,199,29);
+            
+            //Buttons
+            g.setColor(Color.decode("#E8E8E8"));
+            g.fillRect(0, 650, 875, 100);
+            
+            JRadioButton solveS = new JRadioButton(SSC.find);
+            solveS.setActionCommand(SSC.find);
             
             //Text
             Font big=new Font("Segeo UI", Font.PLAIN, 36);
+            
             g.setFont(big);
+            g.setColor(Color.darkGray);
             g.drawString("Solver", 155, 55);
             g.drawString("Creator", 590, 55);
+            g.drawString("Solve", 370, 700);
         }else{
             
         }
