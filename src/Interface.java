@@ -10,6 +10,8 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     int x;
     int y;
     String hovering="";
+    String pressing="";
+    boolean pressed=false;
 
     @Override
     public void paintComponent(Graphics g) {
@@ -122,6 +124,10 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Solve", 370, 700);
             g.setFont(small);
             g.drawString(SSC.arrayToString(SSC.input[0]),300,185);
+            g.drawString(SSC.arrayToString(SSC.input[1]),300,285);
+            g.drawString(SSC.arrayToString(SSC.input[2]),300,385);
+            g.drawString(SSC.arrayToString(SSC.input[3]),300,485);
+            g.drawString(SSC.arrayToString(SSC.input[4]),300,585);
         }else{
             
         }
@@ -146,48 +152,94 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
-        //Input boxes
-        if(SSC.over(300, 500, 160, 214, x, y)){
-            SSC.highlighted="s";
-        }else if(SSC.over(300, 500, 260, 314, x, y)){
-            SSC.highlighted="u";
-        }else if(SSC.over(300, 500, 360, 414, x, y)){
-            SSC.highlighted="v";
-        }else if(SSC.over(300, 500, 460, 514, x, y)){
-            SSC.highlighted="a";
-        }else if(SSC.over(300, 500, 560, 614, x, y)){
-            SSC.highlighted="t";
-        }else{
-            SSC.highlighted="";
-        }
-        
-        
-        //Buttons
-        if(SSC.over(675, 691, 168, 184, x, y)){
-            SSC.find="s";
-        }else if(SSC.over(675, 691, 268, 284, x, y)){
-            SSC.find="u";
-        }else if(SSC.over(675, 691, 368, 384, x, y)){
-            SSC.find="v";
-        }else if(SSC.over(675, 691, 468, 484, x, y)){
-            SSC.find="a";
-        }else if(SSC.over(675, 691, 568, 584, x, y)){
-            SSC.find="t";
-        }
-        
-        //Submit
-        if(SSC.over(0,875,650,750,x,y)){
-            SSC.latex=SSC.solve();
-        }
-        repaint();
+//        System.out.println("CLick");
+//        //Input boxes
+//        if(SSC.over(300, 500, 160, 214, x, y)){
+//            SSC.highlighted="s";
+//        }else if(SSC.over(300, 500, 260, 314, x, y)){
+//            SSC.highlighted="u";
+//        }else if(SSC.over(300, 500, 360, 414, x, y)){
+//            SSC.highlighted="v";
+//        }else if(SSC.over(300, 500, 460, 514, x, y)){
+//            SSC.highlighted="a";
+//        }else if(SSC.over(300, 500, 560, 614, x, y)){
+//            SSC.highlighted="t";
+//        }else{
+//            SSC.highlighted="";
+//        }
+//        
+//        
+//        //Buttons
+//        if(SSC.over(675, 691, 168, 184, x, y)){
+//            SSC.find="s";
+//        }else if(SSC.over(675, 691, 268, 284, x, y)){
+//            SSC.find="u";
+//        }else if(SSC.over(675, 691, 368, 384, x, y)){
+//            SSC.find="v";
+//        }else if(SSC.over(675, 691, 468, 484, x, y)){
+//            SSC.find="a";
+//        }else if(SSC.over(675, 691, 568, 584, x, y)){
+//            SSC.find="t";
+//        }
+//        
+//        //Submit
+//        if(SSC.over(0,875,650,750,x,y)){
+//            SSC.latex=SSC.solve();
+//        }
+//        repaint();
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+        
+        if(!pressed){
+            
+            //Input boxes
+            if(SSC.over(300, 500, 160, 214, x, y)){
+                SSC.highlighted="s";
+            }else if(SSC.over(300, 500, 260, 314, x, y)){
+                SSC.highlighted="u";
+            }else if(SSC.over(300, 500, 360, 414, x, y)){
+                SSC.highlighted="v";
+            }else if(SSC.over(300, 500, 460, 514, x, y)){
+                SSC.highlighted="a";
+            }else if(SSC.over(300, 500, 560, 614, x, y)){
+                SSC.highlighted="t";
+            }else{
+                SSC.highlighted="";
+            }
+
+
+            //Buttons
+            if(SSC.over(675, 691, 168, 184, x, y)){
+                SSC.find="s";
+            }else if(SSC.over(675, 691, 268, 284, x, y)){
+                SSC.find="u";
+            }else if(SSC.over(675, 691, 368, 384, x, y)){
+                SSC.find="v";
+            }else if(SSC.over(675, 691, 468, 484, x, y)){
+                SSC.find="a";
+            }else if(SSC.over(675, 691, 568, 584, x, y)){
+                SSC.find="t";
+            }
+
+            //Submit
+            if(SSC.over(0,875,650,750,x,y)){
+                SSC.latex=SSC.solve();
+                if(!"Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known".equals(SSC.latex)){
+                    SSC.resetInput();
+                    SSC.find="";
+                }
+            }
+            repaint();
+            pressed=true;
+        }
+    }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+        pressed=false;
+    }
 
     @Override
     public void mouseEntered(MouseEvent e) {}
