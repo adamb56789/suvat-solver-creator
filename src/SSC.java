@@ -19,7 +19,7 @@ public class SSC extends JFrame implements KeyListener{
     public void keyReleased(KeyEvent e) {}
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println(Character.getNumericValue(e.getKeyChar()));
+        System.out.println(e.getKeyChar());
     }
 
     public SSC(){
@@ -31,10 +31,6 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[5][64];
-        if(containsData(input[0])){
-            System.out.println("--> null <--");
-            throw new NullPointerException();
-        }
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -112,14 +108,14 @@ public class SSC extends JFrame implements KeyListener{
                 }
             }
         }
-        System.out.println(m);
+
         
         //Checking too see if valid data was entered
         if(m.length()!=3||find.equals("")){
             return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known";
         }
         for(int i=0;i<m.length();i++){
-            if(m.charAt(i)==find.charAt(0)){
+            if(m.charAt(i)==m.charAt(0)){
                 return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known";
             }
         }

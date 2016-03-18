@@ -9,6 +9,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
 
     int x;
     int y;
+    String hovering="";
 
     @Override
     public void paintComponent(Graphics g) {
@@ -19,6 +20,12 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         
         Image gradient;
         gradient=new ImageIcon("Images/gradient.png").getImage();
+        
+        Image Normal;
+        Normal=new ImageIcon("Images/Normal.png").getImage();
+        
+        Image Selected;
+        Selected=new ImageIcon("Images/Selected.png").getImage();
         
         if(SSC.solveMode){
 //            g2.setStroke(new BasicStroke(1));          
@@ -53,6 +60,23 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawRect(300, 360, 200, 30);
             g.drawRect(300, 460, 200, 30);
             g.drawRect(300, 560, 200, 30);
+            
+            g.setColor(Color.decode("#7A9CD3"));
+            switch(SSC.highlighted){
+                case "": 
+                    break;
+                case "s": g.drawRect(300, 160, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 159, 202, 32);
+                    break;
+                case "u": g.drawRect(300, 260, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 259, 202, 32);
+                    break;
+                case "v": g.drawRect(300, 360, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 359, 202, 32);
+                    break;
+                case "a": g.drawRect(300, 460, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 459, 202, 32);
+                    break;
+                case "t": g.drawRect(300, 560, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 559, 202, 32);
+                    break;
+            }
+            
             g.setColor(Color.white);
             g.fillRect(301,161,199,29);
             g.fillRect(301,261,199,29);
@@ -62,11 +86,31 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             
             //Buttons
             g.setColor(Color.decode("#E8E8E8"));
+            if(hovering.equals("Submit")){
+                g.setColor(Color.decode("#C8C8C8"));
+            }
             g.fillRect(0, 650, 875, 100);
+            g.drawImage(Normal, 675, 168, this);
+            g.drawImage(Normal, 675, 268, this);
+            g.drawImage(Normal, 675, 368, this);
+            g.drawImage(Normal, 675, 468, this);
+            g.drawImage(Normal, 675, 568, this);
             
-            JRadioButton solveS = new JRadioButton(SSC.find);
-            solveS.setActionCommand(SSC.find);
-            
+            switch(SSC.find){
+                case "": 
+                    break;
+                case "s": g.drawImage(Selected, 675, 168, this);
+                    break;
+                case "u": g.drawImage(Selected, 675, 268, this);
+                    break;
+                case "v": g.drawImage(Selected, 675, 368, this);
+                    break;
+                case "a": g.drawImage(Selected, 675, 468, this);
+                    break;
+                case "t": g.drawImage(Selected, 675, 568, this);
+                    break;
+            }
+                        
             //Text
             Font big=new Font("Segeo UI", Font.PLAIN, 36);
             
@@ -99,7 +143,40 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        SSC.latex=SSC.solve();
+        
+        //Input boxes
+        if(SSC.over(300, 500, 160, 214, x, y)){
+            SSC.highlighted="s";
+        }else if(SSC.over(300, 500, 260, 314, x, y)){
+            SSC.highlighted="u";
+        }else if(SSC.over(300, 500, 360, 414, x, y)){
+            SSC.highlighted="v";
+        }else if(SSC.over(300, 500, 460, 514, x, y)){
+            SSC.highlighted="a";
+        }else if(SSC.over(300, 500, 560, 614, x, y)){
+            SSC.highlighted="t";
+        }else{
+            SSC.highlighted="";
+        }
+        
+        
+        //Buttons
+        if(SSC.over(675, 691, 168, 184, x, y)){
+            SSC.find="s";
+        }else if(SSC.over(675, 691, 268, 284, x, y)){
+            SSC.find="u";
+        }else if(SSC.over(675, 691, 368, 384, x, y)){
+            SSC.find="v";
+        }else if(SSC.over(675, 691, 468, 484, x, y)){
+            SSC.find="a";
+        }else if(SSC.over(675, 691, 568, 584, x, y)){
+            SSC.find="t";
+        }
+        
+        //Submit
+        if(SSC.over(0,875,650,750,x,y)){
+            SSC.latex=SSC.solve();
+        }
         repaint();
     }
 
@@ -122,5 +199,14 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     public void mouseMoved(MouseEvent e) {
         x = e.getX();
         y = e.getY();
+        
+        //Hovering over submit
+        if(SSC.over(0,875,650,750,x,y)){
+            hovering="Submit";
+            repaint();
+        }else{
+            hovering="";
+            repaint();
+        }
     }
 }
