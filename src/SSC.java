@@ -2,11 +2,13 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import java.util.Arrays;
 
 
 public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
     public static String[][] input;
+    public static int[] length;
     public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
@@ -20,6 +22,21 @@ public class SSC extends JFrame implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         System.out.println(e.getKeyChar());
+        
+        switch(highlighted){
+            case "": 
+                break;
+            case "s": input[0][length[0]]=""+e.getKeyChar();length[0]++;
+                break;
+            case "u": input[1][length[1]]=""+e.getKeyChar();length[1]++;
+                break;
+            case "v": input[2][length[2]]=""+e.getKeyChar();length[2]++;
+                break;
+            case "a": input[3][length[3]]=""+e.getKeyChar();length[3]++;
+                break;
+            case "t": input[4][length[4]]=""+e.getKeyChar();length[4]++;
+                break;
+        }
     }
 
     public SSC(){
@@ -31,6 +48,7 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[5][64];
+        length = new int[5];
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -86,6 +104,14 @@ public class SSC extends JFrame implements KeyListener{
             }
             a++;
         }
+    }
+    
+    public static String arrayToString(String[] array){
+        String string="";
+        for(int i=0;i<nNotNull(array);i++){
+            string+=array[i];
+        }
+        return string;
     }
     
     public static String solve(){

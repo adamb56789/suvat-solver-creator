@@ -112,6 +112,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
                         
             //Text
+            Font small=new Font("Segeo UI", Font.PLAIN, 24);
             Font big=new Font("Segeo UI", Font.PLAIN, 36);
             
             g.setFont(big);
@@ -119,6 +120,8 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Solver", 155, 55);
             g.drawString("Creator", 590, 55);
             g.drawString("Solve", 370, 700);
+            g.setFont(small);
+            g.drawString(SSC.arrayToString(SSC.input[0]),300,185);
         }else{
             
         }
