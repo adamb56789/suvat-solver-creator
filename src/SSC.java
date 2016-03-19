@@ -12,6 +12,7 @@ public class SSC extends JFrame implements KeyListener{
     public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
+    public static String version = "0.1";
     public static boolean solveMode = true;
     
 
@@ -73,21 +74,18 @@ public class SSC extends JFrame implements KeyListener{
     public static void main(String[] args) {
         input = new String[5][15];
         length = new int[5];
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                SSC frame = new SSC();
-                frame.setTitle("SSC");
-                frame.setResizable(false);
-                frame.setSize(1300, 750);
-                frame.setMinimumSize(new Dimension(1300, 750));
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add(frame.draw);
-                frame.pack();
-                frame.setLocationRelativeTo(frame);
-                frame.setVisible(true);
-                frame.getContentPane().setBackground(Color.decode("#F3F3F3"));
-            }
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            SSC frame = new SSC();
+            frame.setTitle("Suvat Solver Creator "+version);
+            frame.setResizable(false);
+            frame.setSize(1300, 750);
+            frame.setMinimumSize(new Dimension(1300, 750));
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.getContentPane().add(frame.draw);
+            frame.pack();
+            frame.setLocationRelativeTo(frame);
+            frame.setVisible(true);
+            frame.getContentPane().setBackground(Color.decode("#F3F3F3"));
         });
     }
     
