@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import org.scilab.forge.jlatexmath.*;
 
 public class Interface extends JComponent implements MouseListener, MouseMotionListener{
@@ -228,6 +229,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 SSC.latex=SSC.solve();
                 if(!"Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known".equals(SSC.latex)){
                     SSC.resetInput();
+                    SSC.resetLength();
                     SSC.find="";
                 }
             }

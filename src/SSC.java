@@ -125,6 +125,12 @@ public class SSC extends JFrame implements KeyListener{
         System.out.println(Arrays.deepToString(input));
     }
     
+    public static void resetLength(){
+        for(int i=0;i<5;i++){
+            length[i]=0;
+        }
+    }
+    
     public static int nNotNull(String[] s){
         int a=0;
         while(true){
@@ -165,6 +171,8 @@ public class SSC extends JFrame implements KeyListener{
         }else if(c=='9'){
             return true;
         }else if(c=='.'){
+            return true;
+        }else if(c=='-'){
             return true;
         }
         return false;
