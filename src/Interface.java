@@ -30,13 +30,16 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Image Selected;
         Selected=new ImageIcon("Images/Selected.png").getImage();
         
-        if(SSC.solveMode){
-//            g2.setStroke(new BasicStroke(1));          
+        Image logo;
+        logo=new ImageIcon("Images/logo.png").getImage();
+        
+        if(SSC.solveMode){        
             
             g.drawImage(gradient, 0, -20, this);
-            g.drawImage(gradient, 433, 93, 442, -93, this);
-            g2.setColor(Color.decode("#D8D8D8"));
-            //g2.fillRect(433,0,442,93);
+            g.drawImage(gradient, 433, 103, 442, -93, this);
+            
+            g2.setColor(Color.decode("#F3F3F3"));
+            g2.fillRect(433, 94, 442, 9);
             
             g2.setColor(Color.decode("#778899"));
             g2.fillRect(876, 0, 149, 93);
@@ -88,7 +91,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.fillRect(301,561,199,29);
             
             //Buttons
-            g.setColor(Color.decode("#E8E8E8"));
+            g.setColor(Color.decode("#D8D8D8"));
             if(hovering.equals("Submit")){
                 g.setColor(Color.decode("#C8C8C8"));
             }
@@ -147,8 +150,8 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         }
         //End of painting the LaTeX
         
-        //Paint the right side
-        
+        //Logo
+        g.drawImage(logo,1143,2,this);
     }
 
     @Override
