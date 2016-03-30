@@ -72,12 +72,6 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String []fontFamilies = ge.getAvailableFontFamilyNames();
-        
-        System.out.println(Arrays.toString(fontFamilies));
-        
         input = new String[5][15];
         length = new int[5];
         javax.swing.SwingUtilities.invokeLater(() -> {

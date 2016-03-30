@@ -118,8 +118,10 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
                         
             //Text
-            Font small=new Font("Segeo UI", Font.PLAIN, 24);
-            Font big=new Font("Segeo UI", Font.PLAIN, 36);
+            String font="Segeo UI";
+            Font small=new Font(font, Font.PLAIN, 20);
+            Font medium=new Font(font, Font.PLAIN, 24);
+            Font big=new Font(font, Font.PLAIN, 36);
             
             g.setFont(big);
             g.setColor(Color.darkGray);
@@ -127,6 +129,14 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Creator", 590, 55);
             g.drawString("Solve", 370, 700);
             g.setFont(small);
+            g.drawString("S (Displacement)", 20, 180);
+            g.drawString("U (Initial Velocity)", 20, 280);
+            g.drawString("V (Final Velocity)", 20, 380);
+            g.drawString("A (Acceleration)", 20, 480);
+            g.drawString("T (Time)", 20, 580);
+            g.drawString("Value to be found", 610, 135);
+            g.setFont(medium);
+            g.drawString("Input",372,130);
             g.drawString(SSC.arrayToString(SSC.input[0]),300,185);
             g.drawString(SSC.arrayToString(SSC.input[1]),300,285);
             g.drawString(SSC.arrayToString(SSC.input[2]),300,385);
