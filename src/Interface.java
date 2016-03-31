@@ -12,6 +12,8 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     int y;
     String hovering="";
     String pressing="";
+    int all=0;
+    int none=0;
     boolean pressed=false;
 
     @Override
@@ -39,7 +41,23 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Image checkSelected;
         checkSelected=new ImageIcon("Images/checkSelected.png").getImage();
         
+        Image buttonNormal;
+        buttonNormal=new ImageIcon("Images/buttonNormal.png").getImage();
+        
+        Image buttonHover;
+        buttonHover=new ImageIcon("Images/buttonHover.png").getImage();
+        
+        Image buttonHold;
+        buttonHold=new ImageIcon("Images/buttonHold.png").getImage();
+        
+        /*Image x;
+        x=new ImageIcon("Images/x.png").getImage();*/
+        g2.setRenderingHint(
+        RenderingHints.KEY_TEXT_ANTIALIASING,
+        RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
+        
         String font="Segeo UI";
+        Font minuscule=new Font(font, Font.PLAIN,14);
         Font tiny=new Font("Consolas", Font.PLAIN,20);
         Font small=new Font(font, Font.PLAIN, 20);
         Font medium=new Font(font, Font.PLAIN, 24);
@@ -145,11 +163,11 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Value to be found", 610, 135);
             g.setFont(medium);
             g.drawString("Input",372,130);
-            g.drawString(SSC.arrayToString(SSC.input[0]),300,185);
-            g.drawString(SSC.arrayToString(SSC.input[1]),300,285);
-            g.drawString(SSC.arrayToString(SSC.input[2]),300,385);
-            g.drawString(SSC.arrayToString(SSC.input[3]),300,485);
-            g.drawString(SSC.arrayToString(SSC.input[4]),300,585);
+            g.drawString(SSC.arrayToString(SSC.input[0]),303,185);
+            g.drawString(SSC.arrayToString(SSC.input[1]),303,285);
+            g.drawString(SSC.arrayToString(SSC.input[2]),303,385);
+            g.drawString(SSC.arrayToString(SSC.input[3]),303,485);
+            g.drawString(SSC.arrayToString(SSC.input[4]),303,585);
         }else{
             g.drawImage(gradient, 433, -20,442,93, this);
             g.drawImage(gradient, -8, 103, 442, -93, this);
@@ -175,7 +193,6 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g2.draw(new Line2D.Float(875, 650, 875, 720));
             g2.draw(new Line2D.Float(0, 721, 875, 721));
             g2.draw(new Line2D.Float(0, 721, 0, 650));
-            //g2.draw(new Line2D.Float(655,140,655,500));
             
             g.setColor(Color.decode("#D8D8D8"));
             if(hovering.equals("Submit")){
@@ -197,10 +214,33 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
 
             }
+            
+            //All/none buttons
+            
+            if(all==0){
+                g.drawImage(buttonNormal,580,445,this);
+            }else if(all==1){
+                g.drawImage(buttonHover,580,445,this);
+            }else if(all==2){
+                g.drawImage(buttonHold,580,445,this);
+            }
+            
+            if(none==0){
+                g.drawImage(buttonNormal,660,445,this);
+            }else if(none==1){
+                g.drawImage(buttonHover,660,445,this);
+            }else if(none==2){
+                g.drawImage(buttonHold,660,445,this);
+            }
+            
             //Text
+            g.setColor(Color.darkGray);
+            
+            g.setFont(minuscule);
+            g.drawString("All",596,460);
+            g.drawString("None",667,460);
             
             g.setFont(big);
-            g.setColor(Color.darkGray);
             g.drawString("Solver", 155, 55);
             g.drawString("Creator", 590, 55);
             g.drawString("Create", 370, 700);
@@ -233,6 +273,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("vat -> s", 500, 430);
             g.drawString("vat -> u", 660, 430);
         }
+        
         //Paint the LaTeX
         if(!"".equals(SSC.latex)){
             TeXFormula formula = new TeXFormula(SSC.latex);
@@ -352,6 +393,16 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                         SSC.includeQuestions[j+1]=!SSC.includeQuestions[j+1];
                     }
                 }
+                
+                //select all
+                if(SSC.over(580, 626, 445, 466, x, y)){
+                    all=2;
+                }
+                
+                //select none
+                if(SSC.over(660, 706, 445, 466, x, y)){
+                    none=2;
+                }
             }
             repaint();
             pressed=true;
@@ -361,6 +412,17 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     @Override
     public void mouseReleased(MouseEvent e) {
         pressed=false;
+        //all
+        if(SSC.over(580, 626, 445, 466, x, y)){
+            SSC.includeQuestions=SSC.allTrue(SSC.includeQuestions);
+        }
+        //none
+        if(SSC.over(660, 706, 445, 466, x, y)){
+            SSC.includeQuestions=SSC.allFalse(SSC.includeQuestions);
+        }
+        all=0;
+        none=0;
+        repaint();
     }
 
     @Override
@@ -384,6 +446,18 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         }else{
             hovering="";
             repaint();
+        }
+        
+        //Hovering over select all/none
+        if(SSC.over(580, 626, 445, 466, x, y)){
+            all=1;
+        }else{
+            all=0;
+        }
+        if(SSC.over(660, 706, 445, 466, x, y)){
+            none=1;
+        }else{
+            none=0;
         }
     }
 }

@@ -101,7 +101,6 @@ public class SSC extends JFrame implements KeyListener{
         length = new int[5];
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
-        System.out.println(Arrays.toString(includeQuestions));
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
@@ -162,6 +161,13 @@ public class SSC extends JFrame implements KeyListener{
     public static boolean[] allTrue(boolean[] array){
         for(int i=0;i<array.length;i++){
             array[i]=true;
+        }
+        return array;
+    }
+    
+    public static boolean[] allFalse(boolean[] array){
+        for(int i=0;i<array.length;i++){
+            array[i]=false;
         }
         return array;
     }
