@@ -12,8 +12,9 @@ public class SSC extends JFrame implements KeyListener{
     public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
-    public static String version = "0.1";
-    public static boolean solveMode = false;
+    public static String version = "0.3";
+    public static boolean[] includeQuestions;
+    public static boolean solveMode = true;
     
 
     @Override
@@ -98,6 +99,9 @@ public class SSC extends JFrame implements KeyListener{
     public static void main(String[] args) {
         input = new String[5][15];
         length = new int[5];
+        includeQuestions = new boolean[20];
+        includeQuestions = allTrue(includeQuestions);
+        System.out.println(Arrays.toString(includeQuestions));
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
@@ -153,6 +157,13 @@ public class SSC extends JFrame implements KeyListener{
         for(int i=0;i<5;i++){
             length[i]=0;
         }
+    }
+    
+    public static boolean[] allTrue(boolean[] array){
+        for(int i=0;i<array.length;i++){
+            array[i]=true;
+        }
+        return array;
     }
     
     public static int nNotNull(String[] s){

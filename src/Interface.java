@@ -34,12 +34,13 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         logo=new ImageIcon("Images/logo.png").getImage();
         
         Image checkNormal;
-        logo=new ImageIcon("Images/checkNormal.png").getImage();
-        
+        checkNormal=new ImageIcon("Images/checkNormal.png").getImage();
+
         Image checkSelected;
-        logo=new ImageIcon("Images/checkSelected.png").getImage();
+        checkSelected=new ImageIcon("Images/checkSelected.png").getImage();
         
         String font="Segeo UI";
+        Font tiny=new Font("Consolas", Font.PLAIN,20);
         Font small=new Font(font, Font.PLAIN, 20);
         Font medium=new Font(font, Font.PLAIN, 24);
         Font big=new Font(font, Font.PLAIN, 36);
@@ -174,6 +175,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g2.draw(new Line2D.Float(875, 650, 875, 720));
             g2.draw(new Line2D.Float(0, 721, 875, 721));
             g2.draw(new Line2D.Float(0, 721, 0, 650));
+            //g2.draw(new Line2D.Float(655,140,655,500));
             
             g.setColor(Color.decode("#D8D8D8"));
             if(hovering.equals("Submit")){
@@ -181,12 +183,55 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
             g.fillRect(0, 650, 875, 100);
             
+            //Checkboxes
+            for(int i=147,j=0;i<418;i+=30,j+=2){
+                if(SSC.includeQuestions[j]){
+                    g.drawImage(checkSelected,610,i,this);
+                }else{
+                    g.drawImage(checkNormal,610,i,this);
+                }
+                if(SSC.includeQuestions[j+1]){
+                    g.drawImage(checkSelected,770,i,this);
+                }else{
+                    g.drawImage(checkNormal,770,i,this);
+                }
+
+            }
             //Text
+            
             g.setFont(big);
             g.setColor(Color.darkGray);
             g.drawString("Solver", 155, 55);
             g.drawString("Creator", 590, 55);
             g.drawString("Create", 370, 700);
+            
+            g.setFont(medium);
+            
+            g.setFont(small);
+            g.drawString("Include questions with these values", 500, 135);
+            g.drawRect(498,115,310,25);
+            
+            g.setFont(tiny);
+            g.drawString("sat -> u", 500, 160);
+            g.drawString("sat -> v", 660, 160);
+            g.drawString("sut -> v", 500, 190);
+            g.drawString("sut -> a", 660, 190);
+            g.drawString("svt -> u", 500, 220);
+            g.drawString("svt -> a", 660, 220);
+            g.drawString("sua -> v", 500, 250);
+            g.drawString("sua -> t", 660, 250);
+            g.drawString("sva -> u", 500, 280);
+            g.drawString("sva -> t", 660, 280);
+            g.drawString("suv -> a", 500, 310);
+            g.drawString("suv -> t", 660, 310);
+            g.drawString("uvt -> s", 500, 340);
+            g.drawString("uvt -> a", 660, 340);
+            g.drawString("uat -> s", 500, 370);
+            g.drawString("uat -> v", 660, 370);
+            g.drawString("uva -> s", 500, 400);
+            g.drawString("uva -> t", 660, 400);
+            g.drawString("vat -> s", 500, 430);
+            g.drawString("vat -> u", 660, 430);
         }
         //Paint the LaTeX
         if(!"".equals(SSC.latex)){
@@ -298,9 +343,15 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                     }
                 }
             } else {
-                
-                
-                
+                //Include questions with these values
+                for(int i=147,j=0;i<418;i+=30,j+=2){
+                    if(SSC.over(610,626,i,i+16,x,y)){
+                        SSC.includeQuestions[j]=!SSC.includeQuestions[j];
+                    }
+                    if(SSC.over(770,786,i,i+16,x,y)){
+                        SSC.includeQuestions[j+1]=!SSC.includeQuestions[j+1];
+                    }
+                }
             }
             repaint();
             pressed=true;
