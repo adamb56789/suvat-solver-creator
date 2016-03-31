@@ -13,7 +13,7 @@ public class SSC extends JFrame implements KeyListener{
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.1";
-    public static boolean solveMode = true;
+    public static boolean solveMode = false;
     
 
     @Override
@@ -34,6 +34,30 @@ public class SSC extends JFrame implements KeyListener{
                     break;
             }
             System.out.println(Arrays.toString(input[0]));
+        }
+        
+        if(e.getKeyCode()==KeyEvent.VK_TAB){
+            if (solveMode) {
+                switch (highlighted) {
+                    case "":                        
+                        break;
+                    case "s":
+                        highlighted = "u";
+                        break;
+                    case "u":
+                        highlighted = "v";
+                        break;
+                    case "v":
+                        highlighted = "a";
+                        break;
+                    case "a":
+                        highlighted = "t";
+                        break;
+                    case "t":
+                        highlighted = "s";
+                        break;
+                }
+            }
         }
         repaint();
     }

@@ -33,6 +33,17 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Image logo;
         logo=new ImageIcon("Images/logo.png").getImage();
         
+        Image checkNormal;
+        logo=new ImageIcon("Images/checkNormal.png").getImage();
+        
+        Image checkSelected;
+        logo=new ImageIcon("Images/checkSelected.png").getImage();
+        
+        String font="Segeo UI";
+        Font small=new Font(font, Font.PLAIN, 20);
+        Font medium=new Font(font, Font.PLAIN, 24);
+        Font big=new Font(font, Font.PLAIN, 36);
+            
         if(SSC.solveMode){        
             
             g.drawImage(gradient, 0, -20, this);
@@ -118,10 +129,6 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
                         
             //Text
-            String font="Segeo UI";
-            Font small=new Font(font, Font.PLAIN, 20);
-            Font medium=new Font(font, Font.PLAIN, 24);
-            Font big=new Font(font, Font.PLAIN, 36);
             
             g.setFont(big);
             g.setColor(Color.darkGray);
@@ -143,7 +150,43 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString(SSC.arrayToString(SSC.input[3]),300,485);
             g.drawString(SSC.arrayToString(SSC.input[4]),300,585);
         }else{
+            g.drawImage(gradient, 433, -20,442,93, this);
+            g.drawImage(gradient, -8, 103, 442, -93, this);
             
+            g2.setColor(Color.decode("#F3F3F3"));
+            g2.fillRect(0, 94, 442, 9);
+            
+            g2.setColor(Color.decode("#778899"));
+            g2.fillRect(876, 0, 149, 93);
+            g2.fillRect(876, 94, 475, 657);
+            
+            g2.setColor(Color.darkGray);
+            g2.draw(new Line2D.Float(875, 93, 1350, 93));
+            g2.draw(new Line2D.Float(1025, 0, 1025, 93));
+            g2.setStroke(new BasicStroke(2));
+            g2.draw(new Line2D.Float(876, 0, 876, 93));
+            g2.draw(new Line2D.Float(0, 93, 433, 93));
+            g2.draw(new Line2D.Float(433, 0, 433, 93));
+            g2.draw(new Line2D.Float(433, 1, 875, 1));
+            g2.setStroke(new BasicStroke(1));
+            g2.draw(new Line2D.Float(875, 93, 875, 650));
+            g2.draw(new Line2D.Float(0, 650, 875, 650));
+            g2.draw(new Line2D.Float(875, 650, 875, 720));
+            g2.draw(new Line2D.Float(0, 721, 875, 721));
+            g2.draw(new Line2D.Float(0, 721, 0, 650));
+            
+            g.setColor(Color.decode("#D8D8D8"));
+            if(hovering.equals("Submit")){
+                g.setColor(Color.decode("#C8C8C8"));
+            }
+            g.fillRect(0, 650, 875, 100);
+            
+            //Text
+            g.setFont(big);
+            g.setColor(Color.darkGray);
+            g.drawString("Solver", 155, 55);
+            g.drawString("Creator", 590, 55);
+            g.drawString("Create", 370, 700);
         }
         //Paint the LaTeX
         if(!"".equals(SSC.latex)){
@@ -208,43 +251,56 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         
         if(!pressed){
             
-            //Input boxes
-            if(SSC.over(300, 500, 160, 214, x, y)){
-                SSC.highlighted="s";
-            }else if(SSC.over(300, 500, 260, 314, x, y)){
-                SSC.highlighted="u";
-            }else if(SSC.over(300, 500, 360, 414, x, y)){
-                SSC.highlighted="v";
-            }else if(SSC.over(300, 500, 460, 514, x, y)){
-                SSC.highlighted="a";
-            }else if(SSC.over(300, 500, 560, 614, x, y)){
-                SSC.highlighted="t";
-            }else{
-                SSC.highlighted="";
+            if(SSC.over(0, 433, 0, 93, x, y)){
+                SSC.solveMode=true;
             }
-
-
-            //Buttons
-            if(SSC.over(675, 691, 168, 184, x, y)){
-                SSC.find="s";
-            }else if(SSC.over(675, 691, 268, 284, x, y)){
-                SSC.find="u";
-            }else if(SSC.over(675, 691, 368, 384, x, y)){
-                SSC.find="v";
-            }else if(SSC.over(675, 691, 468, 484, x, y)){
-                SSC.find="a";
-            }else if(SSC.over(675, 691, 568, 584, x, y)){
-                SSC.find="t";
+            
+            if(SSC.over(433, 875, 0, 93, x, y)){
+                SSC.solveMode=false;
             }
-
-            //Submit
-            if(SSC.over(0,875,650,750,x,y)){
-                SSC.latex=SSC.solve();
-                if(!"Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known".equals(SSC.latex)){
-                    SSC.resetInput();
-                    SSC.resetLength();
-                    SSC.find="";
+            
+            if(SSC.solveMode){
+                //Input boxes
+                if (SSC.over(300, 500, 160, 214, x, y)) {
+                    SSC.highlighted = "s";
+                } else if (SSC.over(300, 500, 260, 314, x, y)) {
+                    SSC.highlighted = "u";
+                } else if (SSC.over(300, 500, 360, 414, x, y)) {
+                    SSC.highlighted = "v";
+                } else if (SSC.over(300, 500, 460, 514, x, y)) {
+                    SSC.highlighted = "a";
+                } else if (SSC.over(300, 500, 560, 614, x, y)) {
+                    SSC.highlighted = "t";
+                } else {
+                    SSC.highlighted = "";
                 }
+
+                //Buttons
+                if (SSC.over(675, 691, 168, 184, x, y)) {
+                    SSC.find = "s";
+                } else if (SSC.over(675, 691, 268, 284, x, y)) {
+                    SSC.find = "u";
+                } else if (SSC.over(675, 691, 368, 384, x, y)) {
+                    SSC.find = "v";
+                } else if (SSC.over(675, 691, 468, 484, x, y)) {
+                    SSC.find = "a";
+                } else if (SSC.over(675, 691, 568, 584, x, y)) {
+                    SSC.find = "t";
+                }
+
+                //Submit
+                if (SSC.over(0, 875, 650, 750, x, y)) {
+                    SSC.latex = SSC.solve();
+                    if (!"Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known".equals(SSC.latex)) {
+                        SSC.resetInput();
+                        SSC.resetLength();
+                        SSC.find = "";
+                    }
+                }
+            } else {
+                
+                
+                
             }
             repaint();
             pressed=true;
