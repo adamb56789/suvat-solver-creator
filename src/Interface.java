@@ -15,7 +15,9 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     int all=0;
     int none=0;
     int decimalBox=0;
+    int decimalHover=0;
     int GBox=0;
+    int GHover;
     int questionNumberBox=0;
     int docNameBox=0;
     boolean pressed=false;
@@ -250,6 +252,16 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
 
             }
+            
+            //easy/hard
+            for(int i=0,j=335;i<2;i++,j+=120){
+                if(SSC.difficulties[i]){
+                    g.drawImage(checkSelected,j,362,this);
+                }else{
+                    g.drawImage(checkNormal,j,362,this);
+                }
+            }
+            
             //Combo Boxes dropdown colour: #FFFFFF. when hovering: #EEEEEE
             
             if(decimalBox==0){
@@ -333,6 +345,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.setFont(medium);
             g.drawString(SSC.arrayToString(SSC.createInput[0]),298,139);
             g.drawString(SSC.arrayToString(SSC.createInput[1]),258,319);
+            g.drawString(SSC.decimalPlaces+"", 310, 198);
             
             g.setFont(small);
             g.drawString("Include questions with these values", 500, 135);
@@ -343,9 +356,12 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Possible values of G", 100, 255);
             g.drawString("Name of document", 100, 315);
             g.drawString("Difficulty of questions", 100, 375);
+            g.drawString("Create answer sheet", 100, 435);
             g.drawRect(498,115,310,25);
             
             g.setFont(tiny);
+            g.drawString("Easier",260,375);
+            g.drawString("Harder",380,375);
             g.drawString("sat -> u", 500, 160);
             g.drawString("sat -> v", 660, 160);
             g.drawString("sut -> v", 500, 190);
@@ -366,6 +382,22 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("uva -> t", 660, 400);
             g.drawString("vat -> s", 500, 430);
             g.drawString("vat -> u", 660, 430);
+            
+            //ComboBox drop downs
+            if(decimalBox==1){
+                g.drawRect(295, 204, 126, 133);
+                g.setColor(Color.white);
+                g.fillRect(296, 205, 125, 132);
+                g.setColor(Color.decode("#EEEEEE"));
+                if(decimalHover!=0){
+                    g.fillRect(296, 211+30*(decimalHover-1), 125, 30);
+                }
+                g.setFont(medium);
+                g.setColor(Color.DARK_GRAY);
+                for(int i=0;i<4;i++){
+                    g.drawString(i+"", 310, 234+30*i);
+                }
+            }
         }
         
         //Paint the LaTeX
@@ -443,60 +475,84 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
             }else{//create mode
                 
-                if (SSC.over(0, 875, 650, 750, x, y)) {
-                    SSC.latex = SSC.create();
-                }
-                
-                //Include questions with these values
-                for(int i=147,j=0;i<418;i+=30,j+=2){
-                    if(SSC.over(610,626,i,i+16,x,y)){
-                        SSC.includeQuestions[j]=!SSC.includeQuestions[j];
-                    }
-                    if(SSC.over(770,786,i,i+16,x,y)){
-                        SSC.includeQuestions[j+1]=!SSC.includeQuestions[j+1];
-                    }
-                }
-                
-                //select all
-                if(SSC.over(580, 626, 445, 466, x, y)){
-                    all=2;
-                }
-                
-                //select none
-                if(SSC.over(660, 706, 445, 466, x, y)){
-                    none=2;
-                }
-                
-                //decimalBox
-                if(SSC.over(295, 422, 173, 205, x, y)){
-                    decimalBox=SSC.swap(decimalBox);
-                }else{
+                if(decimalBox==1){//Decimal box is highlighted
                     decimalBox=0;
-                }
-                
-                //GBox
-                if(SSC.over(295, 422, 233, 265, x, y)){
-                    GBox=SSC.swap(GBox);
-                }else{
+                    for(int i=0;i<4;i++){
+                        if(SSC.over(295, 421, 210+30*i, 240+30*i, x, y)){
+                            SSC.decimalPlaces=i;
+                            decimalHover=0;
+                        }
+                    }
+                }else if(GBox==1){//G box is highlighted
                     GBox=0;
-                }
-                
-                //questionNumberBox
-                if(SSC.over(295,421,113,144,x,y)){
-                    questionNumberBox=1;
-                    SSC.createHighlighted="q";
                 }else{
-                    questionNumberBox=0;
-                    SSC.createHighlighted="";
-                }
-                
-                //docNameBox
-                if(SSC.over(255,481,293,324,x,y)){
-                    docNameBox=1;
-                    SSC.createHighlighted="n";
-                }else if("n".equals(SSC.createHighlighted)){
-                    docNameBox=0;
-                    SSC.createHighlighted="";
+                    if (SSC.over(0, 875, 650, 750, x, y)) {
+                        SSC.latex = SSC.create();
+                    }
+
+                    //Include questions with these values
+                    for (int i = 147, j = 0; i < 418; i += 30, j += 2) {
+                        if (SSC.over(610, 626, i, i + 16, x, y)) {
+                            SSC.includeQuestions[j] ^= true;
+                        }
+                        if (SSC.over(770, 786, i, i + 16, x, y)) {
+                            SSC.includeQuestions[j + 1] ^= true;
+                        }
+                    }
+
+                    //easy/hard
+                    for (int i = 0, j = 335; i < 2; i++, j += 120) {
+                        if (SSC.over(j, j + 16, 362, 376, x, y)) {
+                            if (SSC.difficulties[SSC.swap(i)]) {
+                                SSC.difficulties[i] ^= true;
+                            } else {
+                                SSC.difficulties[i] ^= true;
+                                SSC.difficulties[SSC.swap(i)] ^= true;
+                            }
+                        }
+                    }
+
+                    //select all
+                    if (SSC.over(580, 626, 445, 466, x, y)) {
+                        all = 2;
+                    }
+
+                    //select none
+                    if (SSC.over(660, 706, 445, 466, x, y)) {
+                        none = 2;
+                    }
+
+                    //decimalBox
+                    if (SSC.over(295, 422, 173, 205, x, y)) {
+                        decimalBox = SSC.swap(decimalBox);
+                    } else {
+                        decimalBox = 0;
+                    }
+
+                    //GBox
+                    if (SSC.over(295, 422, 233, 265, x, y)) {
+                        GBox = SSC.swap(GBox);
+                    } else {
+                        GBox = 0;
+                    }
+
+                    //questionNumberBox
+                    if (SSC.over(295, 421, 113, 144, x, y)) {
+                        questionNumberBox = 1;
+                        SSC.createHighlighted = "q";
+                    } else {
+                        questionNumberBox = 0;
+                        SSC.createHighlighted = "";
+                    }
+
+                    //docNameBox
+                    if (SSC.over(255, 481, 293, 324, x, y)) {
+                        docNameBox = 1;
+                        SSC.createHighlighted = "n";
+                    } else if ("n".equals(SSC.createHighlighted)) {
+                        docNameBox = 0;
+                        SSC.createHighlighted = "";
+                    }
                 }
             }
             repaint();
@@ -544,15 +600,22 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         }
         
         //Hovering over select all/none
-        if(SSC.over(580, 626, 445, 466, x, y)){
-            all=1;
-        }else{
-            all=0;
-        }
-        if(SSC.over(660, 706, 445, 466, x, y)){
-            none=1;
-        }else{
-            none=0;
+        if(!SSC.solveMode){
+            if (SSC.over(580, 626, 445, 466, x, y)) {
+                all = 1;
+            } else {
+                all = 0;
+            }
+            if (SSC.over(660, 706, 445, 466, x, y)) {
+                none = 1;
+            } else {
+                none = 0;
+            }
+            for(int i=0;i<4;i++){
+                if(SSC.over(295, 421, 210+30*i, 240+30*i, x, y)){
+                    decimalHover=i+1;
+                }
+            }
         }
     }
 }

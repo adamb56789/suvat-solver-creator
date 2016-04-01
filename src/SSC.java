@@ -13,10 +13,13 @@ public class SSC extends JFrame implements KeyListener{
     public static String createHighlighted=""; //"q", "n"
     public static String[][] createInput;
     public static int[] createLength;
+    public static int decimalPlaces=0;
+    public static String G="9.81";
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.3";
     public static boolean[] includeQuestions;
+    public static boolean[] difficulties;
     public static boolean solveMode = true;
     
 
@@ -84,7 +87,24 @@ public class SSC extends JFrame implements KeyListener{
                 }
             }
         }else{
-            
+            if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE){
+                switch(createHighlighted){
+                    case "":
+                        break;
+                    case "q":
+                        if (createLength[0] != 0) {
+                            createInput[0][createLength[0] - 1] = null;
+                            createLength[0]--;
+                        }
+                        break;
+                    case "n":
+                        if (createLength[1] != 0) {
+                            createInput[1][createLength[1] - 1] = null;
+                            createLength[1]--;
+                        }
+                        break;
+                }
+            }
         }
         repaint();
     }
@@ -152,9 +172,11 @@ public class SSC extends JFrame implements KeyListener{
         input = new String[5][15];
         createInput = new String[2][64];
         length = new int[5];
-        createLength=new int[2];
+        createLength = new int[2];
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
+        difficulties = new boolean[2];
+        difficulties = allTrue(difficulties);
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
@@ -171,7 +193,7 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static boolean over(int x1, int x2, int y1, int y2, int x, int y){
-        if(x1<x&&x<x2&&y1<y&&y<y2){
+        if(x1-1<x&&x<x2&&y1-1<y&&y<y2){
             return true;
         }
         return false;
