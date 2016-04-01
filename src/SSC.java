@@ -86,7 +86,7 @@ public class SSC extends JFrame implements KeyListener{
                     }
                 }
             }
-        }else{
+        }else{//Create mode
             if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE){
                 switch(createHighlighted){
                     case "":
@@ -102,6 +102,20 @@ public class SSC extends JFrame implements KeyListener{
                             createInput[1][createLength[1] - 1] = null;
                             createLength[1]--;
                         }
+                        break;
+                }
+            }
+            if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                switch(createHighlighted){
+                    case "":
+                        break;
+                    case "q":
+                        createInput[0][createLength[0]] = " ";
+                        createLength[0]++;
+                        break;
+                    case "n":
+                        createInput[1][createLength[1]] = " ";
+                        createLength[1]++;
                         break;
                 }
             }
@@ -141,9 +155,8 @@ public class SSC extends JFrame implements KeyListener{
                     length[4]++;
                     break;
             }
-        }else{
+        }else{//Create mode
             if(Character.isLetterOrDigit(e.getKeyChar())){
-                System.out.println(e.getKeyChar());
                 switch(createHighlighted){
                     case "":
                         break;
