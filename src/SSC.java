@@ -10,6 +10,9 @@ public class SSC extends JFrame implements KeyListener{
     public static String[][] input;
     public static int[] length;
     public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
+    public static String createHighlighted=""; //"q", "n"
+    public static String[][] createInput;
+    public static int[] createLength;
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.3";
@@ -19,46 +22,69 @@ public class SSC extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
-            switch(highlighted){
-                case "": 
-                    break;
-                case "s": if(length[0]!=0){input[0][length[0]-1]=null;length[0]--;}
-                    break;
-                case "u": if(length[1]!=0){input[1][length[1]-1]=null;length[1]--;}
-                    break;
-                case "v": if(length[2]!=0){input[2][length[2]-1]=null;length[2]--;}
-                    break;
-                case "a": if(length[3]!=0){input[3][length[3]-1]=null;length[3]--;}
-                    break;
-                case "t": if(length[4]!=0){input[4][length[4]-1]=null;length[4]--;}
-                    break;
-            }
-            System.out.println(Arrays.toString(input[0]));
-        }
-        
-        if(e.getKeyCode()==KeyEvent.VK_TAB){
-            if (solveMode) {
+        if (solveMode) {
+            if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
                 switch (highlighted) {
                     case "":                        
                         break;
                     case "s":
-                        highlighted = "u";
+                        if (length[0] != 0) {
+                            input[0][length[0] - 1] = null;
+                            length[0]--;
+                        }
                         break;
                     case "u":
-                        highlighted = "v";
+                        if (length[1] != 0) {
+                            input[1][length[1] - 1] = null;
+                            length[1]--;
+                        }
                         break;
                     case "v":
-                        highlighted = "a";
+                        if (length[2] != 0) {
+                            input[2][length[2] - 1] = null;
+                            length[2]--;
+                        }
                         break;
                     case "a":
-                        highlighted = "t";
+                        if (length[3] != 0) {
+                            input[3][length[3] - 1] = null;
+                            length[3]--;
+                        }
                         break;
                     case "t":
-                        highlighted = "s";
+                        if (length[4] != 0) {
+                            input[4][length[4] - 1] = null;
+                            length[4]--;
+                        }
                         break;
                 }
             }
+            
+            if (e.getKeyCode() == KeyEvent.VK_TAB) {
+                if (solveMode) {
+                    switch (highlighted) {
+                        case "":                            
+                            break;
+                        case "s":
+                            highlighted = "u";
+                            break;
+                        case "u":
+                            highlighted = "v";
+                            break;
+                        case "v":
+                            highlighted = "a";
+                            break;
+                        case "a":
+                            highlighted = "t";
+                            break;
+                        case "t":
+                            highlighted = "s";
+                            break;
+                    }
+                }
+            }
+        }else{
+            
         }
         repaint();
     }
@@ -67,25 +93,51 @@ public class SSC extends JFrame implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         
-        if(!isAcceptable(e.getKeyChar())){
-            return;
-        }
-        System.out.println("Acceptable");
-        switch(highlighted){
-            case "": 
-                break;
-            case "s": input[0][length[0]]=""+e.getKeyChar();length[0]++;
-                break;
-            case "u": input[1][length[1]]=""+e.getKeyChar();length[1]++;
-                break;
-            case "v": input[2][length[2]]=""+e.getKeyChar();length[2]++;
-                break;
-            case "a": input[3][length[3]]=""+e.getKeyChar();length[3]++;
-                break;
-            case "t": input[4][length[4]]=""+e.getKeyChar();length[4]++;
-                break;
-        }
-        System.out.println("Typed: "+Arrays.toString(input[0]));
+        if (solveMode) {
+            if (!isAcceptable(e.getKeyChar())) {
+                return;
+            }
+            switch (highlighted) {
+                case "":                    
+                    break;
+                case "s":
+                    input[0][length[0]] = "" + e.getKeyChar();
+                    length[0]++;
+                    break;
+                case "u":
+                    input[1][length[1]] = "" + e.getKeyChar();
+                    length[1]++;
+                    break;
+                case "v":
+                    input[2][length[2]] = "" + e.getKeyChar();
+                    length[2]++;
+                    break;
+                case "a":
+                    input[3][length[3]] = "" + e.getKeyChar();
+                    length[3]++;
+                    break;
+                case "t":
+                    input[4][length[4]] = "" + e.getKeyChar();
+                    length[4]++;
+                    break;
+            }
+        }else{
+            if(Character.isLetterOrDigit(e.getKeyChar())){
+                System.out.println(e.getKeyChar());
+                switch(createHighlighted){
+                    case "":
+                        break;
+                    case "q":
+                        createInput[0][createLength[0]] = "" + e.getKeyChar();
+                        createLength[0]++;
+                        break;
+                    case "n":
+                        createInput[1][createLength[1]] = "" + e.getKeyChar();
+                        createLength[1]++;
+                        break;
+                }
+            }
+        }      
         repaint();
     }
 
@@ -98,7 +150,9 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         input = new String[5][15];
+        createInput = new String[2][64];
         length = new int[5];
+        createLength=new int[2];
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
         javax.swing.SwingUtilities.invokeLater(() -> {
@@ -149,7 +203,6 @@ public class SSC extends JFrame implements KeyListener{
         for(int i=0;i<5;i++){
             reset(input[i]);
         }
-        System.out.println(Arrays.deepToString(input));
     }
     
     public static void resetLength(){
@@ -219,6 +272,10 @@ public class SSC extends JFrame implements KeyListener{
         return false;
     }
     
+    public static int swap(int a){
+        return (a-1)*(a-1);
+    }
+    
     public static String solve(){
         
         //Getting the list of entered values
@@ -240,7 +297,6 @@ public class SSC extends JFrame implements KeyListener{
             }
         }
 
-        System.out.println(m);
         //Checking too see if valid data was entered
         if(m.length()!=3||find.equals("")){
             return "Make\\ sure\\ that\\ you\\ have\\ entered\\ information\\\\into\\ exactly\\ three\\ boxes,\\ and\\ that\\ you\\ have\\\\selected\\ a\\ value\\ that\\ is\\ not\\ already\\ known";
@@ -265,27 +321,23 @@ public class SSC extends JFrame implements KeyListener{
                 }
             }
         }
-        if(!"".equals(merged[0])){
-            s=Double.parseDouble(merged[0]);
-        }
-        if(!"".equals(merged[1])){
-            u=Double.parseDouble(merged[1]);
-        }
-        if(!"".equals(merged[2])){
-            v=Double.parseDouble(merged[2]);
-        }
-        if(!"".equals(merged[3])){
-            a=Double.parseDouble(merged[3]);
-        }
-        if(!"".equals(merged[4])){
-            t=Double.parseDouble(merged[4]);
-        }
-        
-        System.out.println(s);
-        System.out.println(u);
-        System.out.println(v);
-        System.out.println(a);
-        System.out.println(t);
+        try {
+            if (!"".equals(merged[0])) {
+                s = Double.parseDouble(merged[0]);
+            }
+            if (!"".equals(merged[1])) {
+                u = Double.parseDouble(merged[1]);
+            }
+            if (!"".equals(merged[2])) {
+                v = Double.parseDouble(merged[2]);
+            }
+            if (!"".equals(merged[3])) {
+                a = Double.parseDouble(merged[3]);
+            }
+            if (!"".equals(merged[4])) {
+                t = Double.parseDouble(merged[4]);
+            }
+        } catch (NumberFormatException numberFormatException) {return "Make\\ sure\\ that\\ you\\\\ have\\ only\\ entered\\ numbers.";}
         
         //send the values to the approriate solve method, and return the solution
         switch(m){
@@ -301,5 +353,9 @@ public class SSC extends JFrame implements KeyListener{
             case "vat": if("s".equals(find)){return solve.vat_s(v,a,t);}else if("u".equals(find)){return solve.vat_u(v,a,t);}else{return "Error";}
         }
         return "Error";
+    }
+    
+    public static String create(){
+        return "Created";
     }
 }

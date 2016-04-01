@@ -14,6 +14,10 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     String pressing="";
     int all=0;
     int none=0;
+    int decimalBox=0;
+    int GBox=0;
+    int questionNumberBox=0;
+    int docNameBox=0;
     boolean pressed=false;
 
     @Override
@@ -50,6 +54,11 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Image buttonHold;
         buttonHold=new ImageIcon("Images/buttonHold.png").getImage();
         
+        Image comboBoxNormal;
+        comboBoxNormal=new ImageIcon("Images/comboBoxNormal.png").getImage();
+        
+        Image comboBoxSelected;
+        comboBoxSelected=new ImageIcon("Images/comboBoxSelected.png").getImage();
         /*Image x;
         x=new ImageIcon("Images/x.png").getImage();*/
         g2.setRenderingHint(
@@ -59,6 +68,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         String font="Segeo UI";
         Font minuscule=new Font(font, Font.PLAIN,14);
         Font tiny=new Font("Consolas", Font.PLAIN,20);
+        Font smallish=new Font(font, Font.PLAIN,16);
         Font small=new Font(font, Font.PLAIN, 20);
         Font medium=new Font(font, Font.PLAIN, 24);
         Font big=new Font(font, Font.PLAIN, 36);
@@ -91,34 +101,60 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g2.draw(new Line2D.Float(0, 721, 0, 650));
             
             //Input boxes
-            g.drawRect(300, 160, 200, 30);
-            g.drawRect(300, 260, 200, 30);
-            g.drawRect(300, 360, 200, 30);
-            g.drawRect(300, 460, 200, 30);
-            g.drawRect(300, 560, 200, 30);
-            
-            g.setColor(Color.decode("#7A9CD3"));
-            switch(SSC.highlighted){
-                case "": 
-                    break;
-                case "s": g.drawRect(300, 160, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 159, 202, 32);
-                    break;
-                case "u": g.drawRect(300, 260, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 259, 202, 32);
-                    break;
-                case "v": g.drawRect(300, 360, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 359, 202, 32);
-                    break;
-                case "a": g.drawRect(300, 460, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 459, 202, 32);
-                    break;
-                case "t": g.drawRect(300, 560, 200, 30);g.setColor(Color.decode("#A0C2F9"));g.drawRect(299, 559, 202, 32);
-                    break;
+            for(int i=160;i<561;i+=100){
+                g.drawRoundRect(300, i, 200, 30,2,2);
             }
             
-            g.setColor(Color.white);
-            g.fillRect(301,161,199,29);
-            g.fillRect(301,261,199,29);
-            g.fillRect(301,361,199,29);
-            g.fillRect(301,461,199,29);
-            g.fillRect(301,561,199,29);
+            for(int i=161;i<562;i+=100){
+                g.setColor(Color.white);
+                g.fillRect(301,i,199,29);
+                g.setColor(Color.DARK_GRAY);
+                g.drawLine(301, i, 301, i);
+                g.drawLine(499, i, 499, i);
+                g.drawLine(301,i+28,301,i+28);
+                g.drawLine(499,i+28,499,i+28);
+            }
+            
+            g.setColor(Color.decode("#7A9CD3"));
+            switch (SSC.highlighted) {
+                case "":                        
+                    break;
+                case "s":
+                    g.drawRect(300, 160, 200, 30);
+                    g.setColor(Color.decode("#A0C2F9"));
+                    g.drawRect(299, 159, 202, 32);
+                    g.setColor(Color.white);
+                    g.fillRect(301, 161, 199, 29);
+                    break;
+                case "u":
+                    g.drawRect(300, 260, 200, 30);
+                    g.setColor(Color.decode("#A0C2F9"));
+                    g.drawRect(299, 259, 202, 32);
+                    g.setColor(Color.white);
+                    g.fillRect(301, 261, 199, 29);
+                    break;
+                case "v":
+                    g.drawRect(300, 360, 200, 30);
+                    g.setColor(Color.decode("#A0C2F9"));
+                    g.drawRect(299, 359, 202, 32);
+                    g.setColor(Color.white);
+                    g.fillRect(301, 361, 199, 29);
+                    break;
+                case "a":
+                    g.drawRect(300, 460, 200, 30);
+                    g.setColor(Color.decode("#A0C2F9"));
+                    g.drawRect(299, 459, 202, 32);
+                    g.setColor(Color.white);
+                    g.fillRect(301, 461, 199, 29);
+                    break;
+                case "t":
+                    g.drawRect(300, 560, 200, 30);
+                    g.setColor(Color.decode("#A0C2F9"));
+                    g.drawRect(299, 559, 202, 32);
+                    g.setColor(Color.white);
+                    g.fillRect(301, 561, 199, 29);
+                    break;
+            }
             
             //Buttons
             g.setColor(Color.decode("#D8D8D8"));
@@ -214,9 +250,21 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
 
             }
+            //Combo Boxes dropdown colour: #FFFFFF. when hovering: #EEEEEE
+            
+            if(decimalBox==0){
+                g.drawImage(comboBoxNormal, 295, 173, this);
+            }else if(decimalBox==1){
+                g.drawImage(comboBoxSelected, 295, 173, this);
+            }
+            
+            if(GBox==0){
+                g.drawImage(comboBoxNormal, 295, 233, this);
+            }else if(GBox==1){
+                g.drawImage(comboBoxSelected, 295, 233, this);
+            }
             
             //All/none buttons
-            
             if(all==0){
                 g.drawImage(buttonNormal,580,445,this);
             }else if(all==1){
@@ -233,6 +281,43 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 g.drawImage(buttonHold,660,445,this);
             }
             
+            //Keyboard input boxes
+            if(questionNumberBox==0){
+                g.setColor(Color.white);
+                g.fillRect(296, 114, 125, 30);
+                g.setColor(Color.DARK_GRAY);
+                g.drawRoundRect(295, 113, 126, 31, 2, 2);
+                g.drawLine(296, 114, 296, 114);
+                g.drawLine(420, 114, 420, 114);
+                g.drawLine(296, 143, 296, 143);
+                g.drawLine(420, 143, 420, 143);
+            }else{
+                g.setColor(Color.white);
+                g.fillRect(296, 114, 125, 30);
+                g.setColor(Color.decode("#7A9CD3"));
+                g.drawRect(295, 113, 126, 31);
+                g.setColor(Color.decode("#A0C2F9"));
+                g.drawRect(294, 112, 128, 33);
+            }
+            
+            if(docNameBox==0){
+                g.setColor(Color.white);
+                g.fillRect(256, 294, 225, 30);
+                g.setColor(Color.DARK_GRAY);
+                g.drawRoundRect(255, 293, 226, 31, 2, 2);
+                g.drawLine(256, 294, 256, 294);
+                g.drawLine(480, 294, 480, 294);
+                g.drawLine(256, 323, 256, 323);
+                g.drawLine(480, 323, 480, 323);
+            }else{
+                g.setColor(Color.white);
+                g.fillRect(256, 294, 225, 30);
+                g.setColor(Color.decode("#7A9CD3"));
+                g.drawRect(255, 293, 226, 31);
+                g.setColor(Color.decode("#A0C2F9"));
+                g.drawRect(254, 292, 228, 33);
+            }
+            
             //Text
             g.setColor(Color.darkGray);
             
@@ -246,9 +331,18 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Create", 370, 700);
             
             g.setFont(medium);
+            g.drawString(SSC.arrayToString(SSC.createInput[0]),298,139);
+            g.drawString(SSC.arrayToString(SSC.createInput[1]),258,319);
             
             g.setFont(small);
             g.drawString("Include questions with these values", 500, 135);
+            
+            g.setFont(smallish);
+            g.drawString("Number of questions", 100, 135);
+            g.drawString("Number of decimal places", 100, 195);
+            g.drawString("Possible values of G", 100, 255);
+            g.drawString("Name of document", 100, 315);
+            g.drawString("Difficulty of questions", 100, 375);
             g.drawRect(498,115,310,25);
             
             g.setFont(tiny);
@@ -294,43 +388,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-//        System.out.println("CLick");
-//        //Input boxes
-//        if(SSC.over(300, 500, 160, 214, x, y)){
-//            SSC.highlighted="s";
-//        }else if(SSC.over(300, 500, 260, 314, x, y)){
-//            SSC.highlighted="u";
-//        }else if(SSC.over(300, 500, 360, 414, x, y)){
-//            SSC.highlighted="v";
-//        }else if(SSC.over(300, 500, 460, 514, x, y)){
-//            SSC.highlighted="a";
-//        }else if(SSC.over(300, 500, 560, 614, x, y)){
-//            SSC.highlighted="t";
-//        }else{
-//            SSC.highlighted="";
-//        }
-//        
-//        
-//        //Buttons
-//        if(SSC.over(675, 691, 168, 184, x, y)){
-//            SSC.find="s";
-//        }else if(SSC.over(675, 691, 268, 284, x, y)){
-//            SSC.find="u";
-//        }else if(SSC.over(675, 691, 368, 384, x, y)){
-//            SSC.find="v";
-//        }else if(SSC.over(675, 691, 468, 484, x, y)){
-//            SSC.find="a";
-//        }else if(SSC.over(675, 691, 568, 584, x, y)){
-//            SSC.find="t";
-//        }
-//        
-//        //Submit
-//        if(SSC.over(0,875,650,750,x,y)){
-//            SSC.latex=SSC.solve();
-//        }
-//        repaint();
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -383,7 +441,12 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                         SSC.find = "";
                     }
                 }
-            } else {
+            }else{//create mode
+                
+                if (SSC.over(0, 875, 650, 750, x, y)) {
+                    SSC.latex = SSC.create();
+                }
+                
                 //Include questions with these values
                 for(int i=147,j=0;i<418;i+=30,j+=2){
                     if(SSC.over(610,626,i,i+16,x,y)){
@@ -402,6 +465,38 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 //select none
                 if(SSC.over(660, 706, 445, 466, x, y)){
                     none=2;
+                }
+                
+                //decimalBox
+                if(SSC.over(295, 422, 173, 205, x, y)){
+                    decimalBox=SSC.swap(decimalBox);
+                }else{
+                    decimalBox=0;
+                }
+                
+                //GBox
+                if(SSC.over(295, 422, 233, 265, x, y)){
+                    GBox=SSC.swap(GBox);
+                }else{
+                    GBox=0;
+                }
+                
+                //questionNumberBox
+                if(SSC.over(295,421,113,144,x,y)){
+                    questionNumberBox=1;
+                    SSC.createHighlighted="q";
+                }else{
+                    questionNumberBox=0;
+                    SSC.createHighlighted="";
+                }
+                
+                //docNameBox
+                if(SSC.over(255,481,293,324,x,y)){
+                    docNameBox=1;
+                    SSC.createHighlighted="n";
+                }else if("n".equals(SSC.createHighlighted)){
+                    docNameBox=0;
+                    SSC.createHighlighted="";
                 }
             }
             repaint();
