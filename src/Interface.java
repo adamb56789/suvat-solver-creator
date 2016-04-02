@@ -17,7 +17,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
     int decimalBox=0;
     int decimalHover=0;
     int GBox=0;
-    int GHover;
+    int GHover=0;
     int questionNumberBox=0;
     int docNameBox=0;
     boolean pressed=false;
@@ -262,8 +262,14 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
             }
             
-            //Combo Boxes dropdown colour: #FFFFFF. when hovering: #EEEEEE
+            //makeAnswers
+            if(SSC.makeAnswers){
+                g.drawImage(checkSelected,260,422,this);
+            }else{
+                g.drawImage(checkNormal,260,422,this);
+            }
             
+            //Combo Boxes
             if(decimalBox==0){
                 g.drawImage(comboBoxNormal, 295, 173, this);
             }else if(decimalBox==1){
@@ -351,6 +357,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Include questions with these values", 500, 135);
             
             g.setFont(smallish);
+            g.drawString(SSC.gravity[SSC.GNum], 300, 255);
             g.drawString("Number of questions", 100, 135);
             g.drawString("Number of decimal places", 100, 195);
             g.drawString("Possible values of G", 100, 255);
@@ -396,6 +403,22 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 g.setColor(Color.DARK_GRAY);
                 for(int i=0;i<4;i++){
                     g.drawString(i+"", 310, 234+30*i);
+                }
+            }
+            
+            if(GBox==1){
+                g.drawRect(295, 264, 126, 223);
+                g.setColor(Color.white);
+                g.fillRect(296, 265, 125, 222);
+                g.setColor(Color.decode("#EEEEEE"));
+                if(GHover!=0){
+                    g.fillRect(296, 270+30*(GHover-1), 125, 30);
+                }
+                g.setFont(smallish);
+                g.setColor(Color.DARK_GRAY);
+                g.drawString(SSC.gravity[SSC.GNum], 300, 255);
+                for(int i=0;i<7;i++){
+                    g.drawString(SSC.gravity[i], 300, 290+30*i);
                 }
             }
         }
@@ -485,6 +508,12 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                     }
                 }else if(GBox==1){//G box is highlighted
                     GBox=0;
+                    for(int i=0;i<7;i++){
+                        if(SSC.over(295, 421, 270+30*i, 300+30*i, x, y)){
+                            SSC.GNum=i;
+                            GHover=0;
+                        }
+                    }
                 }else{
                     if (SSC.over(0, 875, 650, 750, x, y)) {
                         SSC.latex = SSC.create();
@@ -502,7 +531,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
 
                     //easy/hard
                     for (int i = 0, j = 335; i < 2; i++, j += 120) {
-                        if (SSC.over(j, j + 16, 362, 376, x, y)) {
+                        if (SSC.over(j, j + 16, 362, 378, x, y)) {
                             if (SSC.difficulties[SSC.swap(i)]) {
                                 SSC.difficulties[i] ^= true;
                             } else {
@@ -510,6 +539,11 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                                 SSC.difficulties[SSC.swap(i)] ^= true;
                             }
                         }
+                    }
+                    
+                    //makeAnswers
+                    if(SSC.over(260, 276, 422, 438, x, y)){
+                        SSC.makeAnswers^=true;
                     }
 
                     //select all
@@ -611,9 +645,17 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             } else {
                 none = 0;
             }
+            
+            //Combo boxes
             for(int i=0;i<4;i++){
-                if(SSC.over(295, 421, 210+30*i, 240+30*i, x, y)){
+                if(SSC.over(295, 421, 211+30*i, 241+30*i, x, y)){
                     decimalHover=i+1;
+                }
+            }
+            
+            for(int i=0;i<7;i++){
+                if(SSC.over(295, 421, 270+30*i, 300+30*i, x, y)){
+                    GHover=i+1;
                 }
             }
         }

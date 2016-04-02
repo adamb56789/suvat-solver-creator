@@ -14,12 +14,14 @@ public class SSC extends JFrame implements KeyListener{
     public static String[][] createInput;
     public static int[] createLength;
     public static int decimalPlaces=0;
-    public static String G="9.81";
+    public static int GNum=0;
+    public static String gravity[];
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.3";
     public static boolean[] includeQuestions;
     public static boolean[] difficulties;
+    public static boolean makeAnswers=true;
     public static boolean solveMode = true;
     
 
@@ -190,6 +192,14 @@ public class SSC extends JFrame implements KeyListener{
         includeQuestions = allTrue(includeQuestions);
         difficulties = new boolean[2];
         difficulties = allTrue(difficulties);
+        gravity = new String[7];
+        gravity[0] = "Earth (9.81)";
+        gravity[1] = "Moon (1.62)";
+        gravity[2] = "Mars (3.75)";
+        gravity[3] = "Jupiter (26)";
+        gravity[4] = "Pluto (0.61";
+        gravity[5] = "Sun (273)";
+        gravity[6] = "Random";
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
