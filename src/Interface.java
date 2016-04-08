@@ -283,20 +283,32 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
             
             //All/none buttons
-            if(all==0){
-                g.drawImage(buttonNormal,580,445,this);
-            }else if(all==1){
-                g.drawImage(buttonHover,580,445,this);
-            }else if(all==2){
-                g.drawImage(buttonHold,580,445,this);
+            switch (all) {
+                case 0:
+                    g.drawImage(buttonNormal,580,445,this);
+                    break;
+                case 1:
+                    g.drawImage(buttonHover,580,445,this);
+                    break;
+                case 2:
+                    g.drawImage(buttonHold,580,445,this);
+                    break;
+                default:
+                    break;
             }
             
-            if(none==0){
-                g.drawImage(buttonNormal,660,445,this);
-            }else if(none==1){
-                g.drawImage(buttonHover,660,445,this);
-            }else if(none==2){
-                g.drawImage(buttonHold,660,445,this);
+            switch (none) {
+                case 0:
+                    g.drawImage(buttonNormal,660,445,this);
+                    break;
+                case 1:
+                    g.drawImage(buttonHover,660,445,this);
+                    break;
+                case 2:
+                    g.drawImage(buttonHold,660,445,this);
+                    break;
+                default:
+                    break;
             }
             
             //Keyboard input boxes
@@ -357,7 +369,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Include questions with these values", 500, 135);
             
             g.setFont(smallish);
-            g.drawString(SSC.gravity[SSC.GNum], 300, 255);
+            g.drawString(SSC.gravity[SSC.GNum], 305, 255);
             g.drawString("Number of questions", 100, 135);
             g.drawString("Number of decimal places", 100, 195);
             g.drawString("Possible values of G", 100, 255);
@@ -416,9 +428,9 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }
                 g.setFont(smallish);
                 g.setColor(Color.DARK_GRAY);
-                g.drawString(SSC.gravity[SSC.GNum], 300, 255);
+                //g.drawString(SSC.gravity[SSC.GNum], 305, 255);
                 for(int i=0;i<7;i++){
-                    g.drawString(SSC.gravity[i], 300, 290+30*i);
+                    g.drawString(SSC.gravity[i], 305, 290+30*i);
                 }
             }
         }

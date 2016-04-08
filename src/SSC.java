@@ -216,15 +216,12 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static boolean over(int x1, int x2, int y1, int y2, int x, int y){
-        if(x1-1<x&&x<x2&&y1-1<y&&y<y2){
-            return true;
-        }
-        return false;
+        return x1-1<x&&x<x2&&y1-1<y&&y<y2;
     }
     
     public static boolean containsData(String[] array){
-        for(int i=0;i<array.length;i++){
-            if(array[i]!=null){
+        for (String array1 : array) {
+            if (array1 != null) {
                 return true;
             }
         }
@@ -289,30 +286,33 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static boolean isAcceptable(char c){
-        if(c=='0'){
-            return true;
-        }else if(c=='1'){
-            return true;
-        }else if(c=='2'){
-            return true;
-        }else if(c=='3'){
-            return true;
-        }else if(c=='4'){
-            return true;
-        }else if(c=='5'){
-            return true;
-        }else if(c=='6'){
-            return true;
-        }else if(c=='7'){
-            return true;
-        }else if(c=='8'){
-            return true;
-        }else if(c=='9'){
-            return true;
-        }else if(c=='.'){
-            return true;
-        }else if(c=='-'){
-            return true;
+        switch (c) {
+            case '0':
+                return true;
+            case '1':
+                return true;
+            case '2':
+                return true;
+            case '3':
+                return true;
+            case '4':
+                return true;
+            case '5':
+                return true;
+            case '6':
+                return true;
+            case '7':
+                return true;
+            case '8':
+                return true;
+            case '9':
+                return true;
+            case '.':
+                return true;
+            case '-':
+                return true;
+            default:
+                break;
         }
         return false;
     }
