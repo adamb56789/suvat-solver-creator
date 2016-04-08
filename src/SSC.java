@@ -19,6 +19,7 @@ public class SSC extends JFrame implements KeyListener{
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.3";
+    public static String docName = "";
     public static boolean[] includeQuestions;
     public static boolean[] difficulties;
     public static boolean makeAnswers=true;
@@ -401,6 +402,7 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
+        
         return "Created";
     }
 }
