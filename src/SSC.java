@@ -131,7 +131,7 @@ public class SSC extends JFrame implements KeyListener{
     public void keyTyped(KeyEvent e) {
         
         if (solveMode) {
-            if (!isAcceptable(e.getKeyChar())) {
+            if (!isN(e.getKeyChar())) {
                 return;
             }
             switch (highlighted) {
@@ -185,6 +185,9 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
+        
+        System.out.println(Arrays.deepToString(InOut.getQuestions()));
+        
         input = new String[5][15];
         createInput = new String[2][64];
         length = new int[5];
@@ -286,7 +289,7 @@ public class SSC extends JFrame implements KeyListener{
         return string;
     }
     
-    public static boolean isAcceptable(char c){
+    public static boolean isN(char c){
         switch (c) {
             case '0':
                 return true;
