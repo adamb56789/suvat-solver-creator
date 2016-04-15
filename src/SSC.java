@@ -186,12 +186,15 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         
-        System.out.println(Arrays.deepToString(InOut.getQuestions()));
+        System.out.println(Arrays.deepToString(InOut.getResources()));
         
         input = new String[5][15];
         createInput = new String[2][64];
+        createInput[0][0]="1";
+        createInput[0][1]="6";
         length = new int[5];
         createLength = new int[2];
+        createLength[0]=2;
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
         difficulties = new boolean[2];
@@ -322,7 +325,7 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static int swap(int a){
-        return (a-1)*(a-1);
+        return (int) Math.pow(a-1,2);
     }
     
     public static String solve(){
