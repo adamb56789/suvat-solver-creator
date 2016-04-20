@@ -3,6 +3,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class SSC extends JFrame implements KeyListener{
@@ -186,8 +187,6 @@ public class SSC extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
         
-        System.out.println(Arrays.deepToString(InOut.getResources()));
-        
         input = new String[5][15];
         createInput = new String[2][64];
         createInput[0][0]="1";
@@ -201,12 +200,12 @@ public class SSC extends JFrame implements KeyListener{
         difficulties = allTrue(difficulties);
         gravity = new String[7];
         gravity[0] = "Earth (9.81)";
-        gravity[1] = "Moon (1.62)";
+        gravity[1] = "10";
         gravity[2] = "Mars (3.75)";
         gravity[3] = "Jupiter (26)";
-        gravity[4] = "Pluto (0.61";
+        gravity[4] = "Moon (1.62)";
         gravity[5] = "Sun (273)";
-        gravity[6] = "Random";
+        gravity[6] = "Pluto (0.62)";
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
@@ -328,6 +327,10 @@ public class SSC extends JFrame implements KeyListener{
         return (int) Math.pow(a-1,2);
     }
     
+    public static int RNG(int min, int max){
+        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    }
+    
     public static String solve(){
         
         //Getting the list of entered values
@@ -408,6 +411,68 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
+        int NQuestions=Integer.parseInt(arrayToString(createInput[0]));
+        String[][][][] r=InOut.getResources();
+        String[] questions=new String[NQuestions];
+        int[][] rng=new int[NQuestions][5];
+        int[][] bans=new int[2][NQuestions];
+        int[] NBans=new int[2];
+        
+        for(int i=0;i<NQuestions;i++){
+            if(difficulties[0]&&!difficulties[1]){
+                rng[i][0]=0;
+            }else if(difficulties[1]&&!difficulties[0]){
+                rng[i][0]=1;
+            }else{
+                if(i<NQuestions/2){
+                    rng[i][0]=0;
+                }else{
+                    rng[i][0]=1;
+                }
+            }
+            
+            int EorH;
+            
+            if(rng[i][0]==0){
+                EorH=0;
+            }else{
+                EorH=1;
+            }
+            
+            boolean temp=true;
+            int n=0;
+            
+            while(temp){
+                n=RNG(0,29);
+                temp=false;
+                for(int j=0;j<NBans[EorH];j++){
+                    if(n==bans[EorH][j]){
+                        temp=true;
+                    }
+                }
+            }
+            
+            rng[i][1]=n;
+            bans[EorH][NBans[EorH]]=n;
+            NBans[EorH]++;
+            
+            if(NBans[EorH]==30){
+                NBans[EorH]=0;
+                for(int j=0;j<30;j++){
+                    bans[EorH][j]=0;
+                }
+            }
+            
+            rng[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][5]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][6]));
+            rng[i][3]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][7]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][8]));
+            rng[i][4]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][10]));
+        }
+        
+        for(int i=0;i<NQuestions;i++){
+            String question=r[0][rng[i][0]][rng[i][1]][0];
+            question+=r[0][rng[i][0]][rng[i][1]][0];
+            InOut.write(question);
+        }
         
         return "Created";
     }
