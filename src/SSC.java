@@ -1,6 +1,7 @@
     import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.DecimalFormat;
 import javax.swing.JFrame;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,11 +17,13 @@ public class SSC extends JFrame implements KeyListener{
     public static int[] createLength;
     public static int decimalPlaces=0;
     public static int GNum=0;
+    public static double G;
     public static String gravity[];
     public static String latex="Solutions\\ will\\ appear\\ here";
     public static String find="";
     public static String version = "0.3";
     public static String docName = "";
+    public static String docNameA = "";
     public static boolean[] includeQuestions;
     public static boolean[] difficulties;
     public static boolean makeAnswers=true;
@@ -327,8 +330,18 @@ public class SSC extends JFrame implements KeyListener{
         return (int) Math.pow(a-1,2);
     }
     
-    public static int RNG(int min, int max){
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    public static double RNG(int min, int max,int decimals){
+        String f;
+        if(decimalPlaces==0){
+            f="#";
+        }else{
+            f="#.";
+            for(int i=0;i<decimalPlaces;i++){
+                f+="#";
+            }
+        }
+        DecimalFormat df = new DecimalFormat(f);
+        return Double.parseDouble(df.format(ThreadLocalRandom.current().nextDouble(min, max)));
     }
     
     public static String solve(){
@@ -411,10 +424,36 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
+        switch (GNum) {
+            case 0:
+                G=9.81;
+                break;
+            case 1:
+                G=10;
+                break;
+            case 2:
+                G=3.75;
+                break;
+            case 3:
+                G=26;
+                break;
+            case 4:
+                G=1.62;
+                break;
+            case 5:
+                G=273;
+                break;
+            case 6:
+                G=0.62;
+                break;
+            default:
+                break;
+        }
         int NQuestions=Integer.parseInt(arrayToString(createInput[0]));
         String[][][][] r=InOut.getResources();
         String[] questions=new String[NQuestions];
-        int[][] rng=new int[NQuestions][5];
+        int[][] rng=new int[NQuestions][2];
+        double[][] rngD=new double[NQuestions][3];
         int[][] bans=new int[2][NQuestions];
         int[] NBans=new int[2];
         
@@ -443,7 +482,7 @@ public class SSC extends JFrame implements KeyListener{
             int n=0;
             
             while(temp){
-                n=RNG(0,29);
+                n=(int) RNG(0,29,0);
                 temp=false;
                 for(int j=0;j<NBans[EorH];j++){
                     if(n==bans[EorH][j]){
@@ -462,18 +501,46 @@ public class SSC extends JFrame implements KeyListener{
                     bans[EorH][j]=0;
                 }
             }
-            
-            rng[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][5]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][6]));
-            rng[i][3]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][7]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][8]));
-            rng[i][4]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][2]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][2]][10]));
+            rngD[i][0]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][5]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][6]),decimalPlaces);
+            rngD[i][1]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][7]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][8]),decimalPlaces);
+            rngD[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][10]),decimalPlaces);
         }
         
+        String[][] rngDS=new String[NQuestions][3];
+        if(decimalPlaces==0){
+            for(int i=0;i<NQuestions;i++){
+                rngDS[i][0]=(int)rngD[i][0]+"";
+                rngDS[i][1]=(int)rngD[i][1]+"";
+                rngDS[i][2]=(int)rngD[i][2]+"";
+            }
+        }else{
+            for(int i=0;i<NQuestions;i++){
+                rngDS[i][0]=rngD[i][0]+"";
+                rngDS[i][1]=rngD[i][1]+"";
+                rngDS[i][2]=rngD[i][2]+"";
+            }
+        }
+        
+        InOut.createTXT(docName);
         for(int i=0;i<NQuestions;i++){
-            String question=r[0][rng[i][0]][rng[i][1]][0];
-            question+=r[0][rng[i][0]][rng[i][1]][0];
+            String question=r[0][rng[i][0]][rng[i][1]][1];
+            question+=rngDS[i][0];
+            question+=r[0][rng[i][0]][rng[i][1]][2];
+            question+=rngDS[i][1];
+            question+=r[0][rng[i][0]][rng[i][1]][3];
+            if("0".equals(r[0][rng[i][0]][rng[i][1]][0])){
+                question+=rngDS[i][2];
+            }else{
+                question+=G;
+            }
+            question+=r[0][rng[i][0]][rng[i][1]][4];
             InOut.write(question);
         }
         
+        //Question document
+        if(makeAnswers){
+            //make the answers
+        }
         return "Created";
     }
 }
