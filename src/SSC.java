@@ -209,6 +209,8 @@ public class SSC extends JFrame implements KeyListener{
         gravity[4] = "Moon (1.62)";
         gravity[5] = "Sun (273)";
         gravity[6] = "Pluto (0.62)";
+        createInput[1][0]="Untitled Document";
+        createLength[1]=1;
         javax.swing.SwingUtilities.invokeLater(() -> {
             SSC frame = new SSC();
             frame.setTitle("Suvat Solver Creator "+version);
@@ -424,6 +426,12 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
+        
+        if(containsData(createInput[1])){
+            docName=arrayToString(createInput[1]);
+        }else{
+            docName="Untitled Document";
+        }
         switch (GNum) {
             case 0:
                 G=9.81;
@@ -523,7 +531,8 @@ public class SSC extends JFrame implements KeyListener{
         
         InOut.createTXT(docName);
         for(int i=0;i<NQuestions;i++){
-            String question=r[0][rng[i][0]][rng[i][1]][1];
+            String question=i+1+". ";
+            question+=r[0][rng[i][0]][rng[i][1]][1];
             question+=rngDS[i][0];
             question+=r[0][rng[i][0]][rng[i][1]][2];
             question+=rngDS[i][1];
@@ -534,12 +543,16 @@ public class SSC extends JFrame implements KeyListener{
                 question+=G;
             }
             question+=r[0][rng[i][0]][rng[i][1]][4];
-            InOut.write(question);
+            
+            //The final writing
+            InOut.write(docName, question);
+            InOut.write(docName, "");
         }
         
         //Question document
         if(makeAnswers){
-            //make the answers
+            docNameA=docName+" - Answers";
+            InOut.createTXT(docNameA);
         }
         return "Created";
     }

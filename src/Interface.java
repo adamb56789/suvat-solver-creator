@@ -362,7 +362,6 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             
             g.setFont(medium);
             g.drawString(SSC.arrayToString(SSC.createInput[0]),298,139);
-            g.drawString(SSC.arrayToString(SSC.createInput[1]),258,319);
             g.drawString(SSC.decimalPlaces+"", 310, 198);
             
             g.setFont(small);
@@ -377,6 +376,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Difficulty of questions", 100, 375);
             g.drawString("Create answer sheet", 100, 435);
             g.drawRect(498,115,310,25);
+            g.drawString(SSC.arrayToString(SSC.createInput[1]),264,316);
             
             g.setFont(tiny);
             g.drawString("Easier",260,375);

@@ -1,10 +1,15 @@
 public class InOut {
     public static void createTXT(String n){
-        //Create a text document
+        //Create a text document called n
+        System.out.println("\""+n+"\" created");
     }
-    public static void write(String s){
-        //Add the string on to the end of the document
-        System.out.println(s);
+    public static void write(String n, String s){
+        //Add the string on to the end of document n
+        if(s.equals("")){
+            System.out.println("¶");
+        }else{
+            System.out.println("Writing \""+s+"\" to \""+n+"\"");
+        }
     }
     
     //includesG text text text text min max min max min max
