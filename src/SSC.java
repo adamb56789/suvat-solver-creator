@@ -209,6 +209,7 @@ public class SSC extends JFrame implements KeyListener{
         gravity[4] = "Moon (1.62)";
         gravity[5] = "Sun (273)";
         gravity[6] = "Pluto (0.62)";
+        System.out.println(Arrays.toString(gravity));
         createInput[1][0]="Untitled Document";
         createLength[1]=1;
         javax.swing.SwingUtilities.invokeLater(() -> {
@@ -549,7 +550,7 @@ public class SSC extends JFrame implements KeyListener{
             InOut.write(docName, "");
         }
         
-        //Question document
+        //Answers document
         if(makeAnswers){
             docNameA=docName+" - Answers";
             InOut.createTXT(docNameA);
