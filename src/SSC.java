@@ -209,7 +209,6 @@ public class SSC extends JFrame implements KeyListener{
         gravity[4] = "Moon (1.62)";
         gravity[5] = "Sun (273)";
         gravity[6] = "Pluto (0.62)";
-        System.out.println(Arrays.toString(gravity));
         createInput[1][0]="Untitled Document";
         createLength[1]=1;
         javax.swing.SwingUtilities.invokeLater(() -> {
@@ -574,30 +573,91 @@ public class SSC extends JFrame implements KeyListener{
                     rngDS[i][2]=G+"";
                 }
                 //Display the explanation
-                String explain=r[1][rng[i][0]][rng[i][1]][0];
+                String explain=r[1][rng[i][0]][rng[i][1]][1];
                 explain+=rngDS[i][0];
-                explain+=r[1][rng[i][0]][rng[i][1]][1];
-                explain+=rngDS[i][1];
                 explain+=r[1][rng[i][0]][rng[i][1]][2];
-                explain+=rngDS[i][2];
+                explain+=rngDS[i][1];
                 explain+=r[1][rng[i][0]][rng[i][1]][3];
+                explain+=rngDS[i][2];
+                explain+=r[1][rng[i][0]][rng[i][1]][4];
                 
                 //Solution(s)
-                String solution;
+                String[][] v={{"S = ","U = ","V = ","A = ","T = "},{"","","","",""},{" m"," m/s"," m/s"," m/s/s"," s"}};
+                String nv;
+                String S="Solution: ";
+                System.out.println("rng[i][1] is "+rng[i][1]);
                 switch(rng[i][1]){
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
+                    case 0 : S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and v = "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
+                        break;
+                    case 1 : S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 2 : S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 3 : S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 4 : S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 5 : S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 6 : S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";
+                        break;
+                    case 7 : S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 8 : S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 9 : S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 10: S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 11: S+="v "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 12: S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 13: S+="a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 14: S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 15: S+="a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 16: S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 17: S+="t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 18: S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 19: S+="t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 20: S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 21: S+="t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 22: S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";
+                        break;
+                    case 23: S+="s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";
+                        break;
+                    case 24: S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";
+                        break;
+                    case 25: S+="v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
+                    case 26: S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";
+                        break;
+                    case 27: S+="t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";
+                        break;
+                    case 28: S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";
+                        break;
+                    case 29: S+="u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";
+                        break;
                 }
                 
                 InOut.write(docNameA,question);
                 InOut.write(docNameA,"");
                 InOut.write(docNameA,explain);
                 InOut.write(docNameA,"");
+                for(int j=0;j<5;j++){
+                    InOut.write(docNameA,v[0][j]+v[1][j]+v[2][j]);
+                }
                 InOut.write(docNameA,"");
-                InOut.write(docNameA,"");
+                InOut.write(docNameA,S);
             }
         }
         return "Created";

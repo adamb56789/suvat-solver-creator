@@ -13,7 +13,7 @@ public class InOut {
     }
     
     //includesG text text text text min max min max min max
-    //text text text text
+    //placeHolder text text text text
     public static String[][][][] getResources(){
         String[][][][] data=new String[2][2][30][11];
         for(int i=0;i<2;i++){
