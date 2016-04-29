@@ -1,4 +1,4 @@
-    import java.awt.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.DecimalFormat;
@@ -554,6 +554,51 @@ public class SSC extends JFrame implements KeyListener{
         if(makeAnswers){
             docNameA=docName+" - Answers";
             InOut.createTXT(docNameA);
+            for(int i=0;i<NQuestions;i++){
+                
+                //Display the question
+                String question=i+1+". ";
+                question+=r[0][rng[i][0]][rng[i][1]][1];
+                question+=rngDS[i][0];
+                question+=r[0][rng[i][0]][rng[i][1]][2];
+                question+=rngDS[i][1];
+                question+=r[0][rng[i][0]][rng[i][1]][3];
+                if("0".equals(r[0][rng[i][0]][rng[i][1]][0])){
+                    question+=rngDS[i][2];
+                }else{
+                    question+=G;
+                }
+                question+=r[0][rng[i][0]][rng[i][1]][4];
+                
+                if(!"0".equals(r[0][rng[i][0]][rng[i][1]][0])){
+                    rngDS[i][2]=G+"";
+                }
+                //Display the explanation
+                String explain=r[1][rng[i][0]][rng[i][1]][0];
+                explain+=rngDS[i][0];
+                explain+=r[1][rng[i][0]][rng[i][1]][1];
+                explain+=rngDS[i][1];
+                explain+=r[1][rng[i][0]][rng[i][1]][2];
+                explain+=rngDS[i][2];
+                explain+=r[1][rng[i][0]][rng[i][1]][3];
+                
+                //Solution(s)
+                String solution;
+                switch(rng[i][1]){
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                }
+                
+                InOut.write(docNameA,question);
+                InOut.write(docNameA,"");
+                InOut.write(docNameA,explain);
+                InOut.write(docNameA,"");
+                InOut.write(docNameA,"");
+                InOut.write(docNameA,"");
+            }
         }
         return "Created";
     }
