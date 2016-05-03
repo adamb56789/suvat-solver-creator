@@ -1,4 +1,5 @@
 public class solve {
+    
         public static String sat_u(double s, double a, double t){
             double d=-(.5*a*t*t-s)/t;
             return "= "+d;

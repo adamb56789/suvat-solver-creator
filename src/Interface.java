@@ -30,37 +30,37 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
         Graphics2D g2 = (Graphics2D) g;
         
         Image gradient;
-        gradient=new ImageIcon("Images/gradient.png").getImage();
+        gradient=new ImageIcon("Resources/gradient.png").getImage();
         
         Image Normal;
-        Normal=new ImageIcon("Images/Normal.png").getImage();
+        Normal=new ImageIcon("Resources/Normal.png").getImage();
         
         Image Selected;
-        Selected=new ImageIcon("Images/Selected.png").getImage();
+        Selected=new ImageIcon("Resources/Selected.png").getImage();
         
         Image logo;
-        logo=new ImageIcon("Images/logo.png").getImage();
+        logo=new ImageIcon("Resources/logo.png").getImage();
         
         Image checkNormal;
-        checkNormal=new ImageIcon("Images/checkNormal.png").getImage();
+        checkNormal=new ImageIcon("Resources/checkNormal.png").getImage();
 
         Image checkSelected;
-        checkSelected=new ImageIcon("Images/checkSelected.png").getImage();
+        checkSelected=new ImageIcon("Resources/checkSelected.png").getImage();
         
         Image buttonNormal;
-        buttonNormal=new ImageIcon("Images/buttonNormal.png").getImage();
+        buttonNormal=new ImageIcon("Resources/buttonNormal.png").getImage();
         
         Image buttonHover;
-        buttonHover=new ImageIcon("Images/buttonHover.png").getImage();
+        buttonHover=new ImageIcon("Resources/buttonHover.png").getImage();
         
         Image buttonHold;
-        buttonHold=new ImageIcon("Images/buttonHold.png").getImage();
+        buttonHold=new ImageIcon("Resources/buttonHold.png").getImage();
         
         Image comboBoxNormal;
-        comboBoxNormal=new ImageIcon("Images/comboBoxNormal.png").getImage();
+        comboBoxNormal=new ImageIcon("Resources/comboBoxNormal.png").getImage();
         
         Image comboBoxSelected;
-        comboBoxSelected=new ImageIcon("Images/comboBoxSelected.png").getImage();
+        comboBoxSelected=new ImageIcon("Resources/comboBoxSelected.png").getImage();
         /*Image x;
         x=new ImageIcon("Images/x.png").getImage();*/
         g2.setRenderingHint(
