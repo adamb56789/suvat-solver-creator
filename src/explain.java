@@ -20,8 +20,7 @@ public class explain {
     }
 
     public static String sut_v(double s, double u, double t){
-        double d=2*(s/t)-u;
-        return "= "+d;
+        return e[2][0]+parseD(s)+e[2][1]+parseD(t)+e[2][2]+parseD(u)+e[2][3]+solve.sut_v(s, u, t);
     }
 
     public static String sut_a(double s, double u, double t){
@@ -29,52 +28,44 @@ public class explain {
     }
 
     public static String svt_u(double s, double v, double t){
-        double d=2*(s/t)-v;
-        return "= "+d;
+        return e[4][0]+parseD(s)+e[4][1]+parseD(t)+e[4][2]+parseD(v)+e[4][3]+solve.svt_u(s, v, t);
     }
 
     public static String svt_a(double s, double v, double t){
+        System.out.println(e[5][0]);
         return e[5][0]+parseD(v)+e[5][1]+parseD(t)+e[5][2]+parseD(s)+e[5][3]+parseD(t)+e[5][4]+solve.svt_a(s, v, t);
     }
 
     public static String sua_v(double s, double u, double a){
-        double d=Math.sqrt(u*u+2*a*s);
-        return "= "+d;
+        return e[6][0]+parseD(u)+e[6][1]+parseD(a)+e[6][2]+parseD(s)+e[6][3]+solve.sua_v(s, u, a);
     }
 
     public static String sua_t(double s, double u, double a){
-        double d=((Math.sqrt(u*u+2*a*s))-u)/a;
-        return "= "+d;
+        return "This is a special case...";
     }
 
     public static String sva_u(double s, double v, double a){
-        double d=Math.sqrt(v*v+2*a*s);
-        return "= "+d;
+        return e[8][0]+parseD(v)+e[8][1]+parseD(a)+e[8][2]+parseD(s)+e[8][3]+solve.sva_u(s, v, a);
     }
 
     public static String sva_t(double s, double v, double a){
-        double d=((Math.sqrt(v*v+2*a*s))-v)/a;
-        return "= "+d;
+        return "This is a special case...";
     }
 
     public static String suv_a(double s, double u, double v){
-        double d=((v*v)-(u*u))/(2*s);
-        return "= "+d;
+        return e[10][0]+parseD(u)+e[10][1]+parseD(v)+e[10][2]+parseD(s)+e[10][3]+solve.suv_a(s, u, v);
     }
 
     public static String suv_t(double s, double u, double v){
-        double d=s/(.5*(u+v));
-        return "= "+d;
+        return e[11][0]+parseD(s)+e[11][1]+parseD(u)+e[11][2]+parseD(v)+e[11][3]+solve.suv_t(s, u, v);
     }
 
     public static String uvt_s(double u, double v, double t){
-        double d=.5*t*(u+v);
-        return "= "+d;
+        return e[12][0]+parseD(u)+e[12][1]+parseD(v)+e[12][2]+parseD(t)+e[12][3]+solve.uvt_s(u, v, t);
     }
 
     public static String uvt_a(double u, double v, double t){
-        double d=(v-u)/t;
-        return "= "+d;
+        return e[13][0]+parseD(v)+e[13][1]+parseD(u)+e[13][2]+parseD(t)+e[13][3]+solve.uvt_a(u, v, t);
     }
 
     public static String uat_s(double u, double a, double t){
@@ -82,18 +73,15 @@ public class explain {
     }
 
     public static String uat_v(double u, double a, double t){
-        double d=u+a*t;
-        return "= "+d;
+        return e[15][0]+parseD(u)+e[15][1]+parseD(a)+e[15][2]+parseD(t)+e[15][3]+solve.uat_v(u, a, t);
     }
 
     public static String uva_s(double u, double v, double a){
-        double d=((v*v)-(u*u))/(2*a);
-        return "= "+d;
+        return e[16][0]+parseD(v)+e[16][1]+parseD(u)+e[16][2]+parseD(a)+e[16][3]+solve.uva_s(u, v, a);
     }
 
     public static String uva_t(double u, double v, double a){
-        double d=(v-u)/a;
-        return "= "+d;
+        return e[17][0]+parseD(v)+e[17][1]+parseD(u)+e[17][2]+parseD(a)+e[17][3]+solve.uva_t(u, v, a);
     }
 
     public static String vat_s(double v, double a, double t){
@@ -101,7 +89,6 @@ public class explain {
     }
 
     public static String vat_u(double v, double a, double t){
-        double d=v-a*t;
-        return "= "+d;
+        return e[19][0]+parseD(v)+e[19][1]+parseD(a)+e[19][2]+parseD(t)+e[19][3]+solve.vat_u(v, a, t);
     }
 }

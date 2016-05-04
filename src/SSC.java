@@ -347,7 +347,7 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String solve(){
-        
+        InOut.getExplanations();
         //Getting the list of entered values
         String m="";
         for(int i=0;i<5;i++){
@@ -411,16 +411,16 @@ public class SSC extends JFrame implements KeyListener{
         
         //send the values to the approriate solve method, and return the solution
         switch(m){
-            case "sat": if("u".equals(find)){return explain.sat_u(s,a,t);}else if("v".equals(find)){return solve.sat_v(s,a,t);}else{return "Error";}
-            case "sut": if("v".equals(find)){return solve.sut_v(s,u,t);}else if("a".equals(find)){return solve.sut_a(s,u,t);}else{return "Error";}
-            case "svt": if("u".equals(find)){return solve.svt_u(s,v,t);}else if("a".equals(find)){return solve.svt_a(s,v,t);}else{return "Error";}
-            case "sua": if("v".equals(find)){return solve.sua_v(s,u,a);}else if("t".equals(find)){return solve.sua_t(s,u,a);}else{return "Error";}
-            case "sva": if("u".equals(find)){return solve.sva_u(s,v,a);}else if("t".equals(find)){return solve.sva_t(s,v,a);}else{return "Error";}
-            case "suv": if("a".equals(find)){return solve.suv_a(s,u,v);}else if("t".equals(find)){return solve.suv_t(s,u,v);}else{return "Error";}
-            case "uvt": if("s".equals(find)){return solve.uvt_s(u,v,t);}else if("a".equals(find)){return solve.uvt_a(u,v,t);}else{return "Error";}
-            case "uat": if("s".equals(find)){return solve.uat_s(u,a,t);}else if("v".equals(find)){return solve.uat_v(u,a,t);}else{return "Error";}
-            case "uva": if("s".equals(find)){return solve.uva_s(u,v,a);}else if("t".equals(find)){return solve.uva_t(u,v,a);}else{return "Error";}
-            case "vat": if("s".equals(find)){return solve.vat_s(v,a,t);}else if("u".equals(find)){return solve.vat_u(v,a,t);}else{return "Error";}
+            case "sat": if("u".equals(find)){return explain.sat_u(s,a,t);}else if("v".equals(find)){return explain.sat_v(s,a,t);}else{return "Error";}
+            case "sut": if("v".equals(find)){return explain.sut_v(s,u,t);}else if("a".equals(find)){return explain.sut_a(s,u,t);}else{return "Error";}
+            case "svt": if("u".equals(find)){return explain.svt_u(s,v,t);}else if("a".equals(find)){return explain.svt_a(s,v,t);}else{return "Error";}
+            case "sua": if("v".equals(find)){return explain.sua_v(s,u,a);}else if("t".equals(find)){return explain.sua_t(s,u,a);}else{return "Error";}
+            case "sva": if("u".equals(find)){return explain.sva_u(s,v,a);}else if("t".equals(find)){return explain.sva_t(s,v,a);}else{return "Error";}
+            case "suv": if("a".equals(find)){return explain.suv_a(s,u,v);}else if("t".equals(find)){return explain.suv_t(s,u,v);}else{return "Error";}
+            case "uvt": if("s".equals(find)){return explain.uvt_s(u,v,t);}else if("a".equals(find)){return explain.uvt_a(u,v,t);}else{return "Error";}
+            case "uat": if("s".equals(find)){return explain.uat_s(u,a,t);}else if("v".equals(find)){return explain.uat_v(u,a,t);}else{return "Error";}
+            case "uva": if("s".equals(find)){return explain.uva_s(u,v,a);}else if("t".equals(find)){return explain.uva_t(u,v,a);}else{return "Error";}
+            case "vat": if("s".equals(find)){return explain.vat_s(v,a,t);}else if("u".equals(find)){return solve.vat_u(v,a,t);}else{return "Error";}
         }
         return "Error";
     }
