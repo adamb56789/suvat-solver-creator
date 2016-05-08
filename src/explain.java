@@ -41,7 +41,7 @@ public class explain {
     }
 
     public static String sua_t(double s, double u, double a){
-        return "This is a special case...";
+        return e[6][0]+parseD(u)+e[6][1]+parseD(a)+e[6][2]+parseD(s)+e[6][3]+solve.sua_v(s, u, a)+"\\\\"+e[17][0]+parseD(Math.sqrt(u*u+2*a*s))+e[17][1]+parseD(u)+e[17][2]+parseD(a)+e[17][3]+solve.uva_t(u, Math.sqrt(u*u+2*a*s), a);
     }
 
     public static String sva_u(double s, double v, double a){
@@ -49,11 +49,11 @@ public class explain {
     }
 
     public static String sva_t(double s, double v, double a){
-        return "This is a special case...";
+        return e[8][0]+parseD(v)+e[8][1]+parseD(a)+e[8][2]+parseD(s)+e[8][3]+solve.sva_u(s, v, a)+"\\\\"+e[17][0]+parseD(v)+e[17][1]+parseD(Math.sqrt(v*v-2*a*s))+e[17][2]+parseD(a)+e[17][3]+solve.uva_t(Math.sqrt(v*v-2*a*s), v, a);
     }
 
     public static String suv_a(double s, double u, double v){
-        return e[10][0]+parseD(u)+e[10][1]+parseD(v)+e[10][2]+parseD(s)+e[10][3]+solve.suv_a(s, u, v);
+        return e[10][0]+parseD(v)+e[10][1]+parseD(u)+e[10][2]+parseD(s)+e[10][3]+solve.suv_a(s, u, v);
     }
 
     public static String suv_t(double s, double u, double v){

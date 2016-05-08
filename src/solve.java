@@ -42,7 +42,11 @@ public class solve {
         
         public static String sva_u(double s, double v, double a){
             double d=Math.sqrt(v*v-2*a*s);
-            return "= "+d;
+            if(Double.isNaN(d)){
+                return "=\\mathrm{No\\ real\\ solution\\\\ square\\ root\\ of\\ a\\ negative}";
+            }else{
+                return "= "+d;
+            }
         }
         
         public static String sva_t(double s, double v, double a){
