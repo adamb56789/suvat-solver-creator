@@ -41,7 +41,7 @@ public class solve {
         }
         
         public static String sva_u(double s, double v, double a){
-            double d=Math.sqrt(v*v+2*a*s);
+            double d=Math.sqrt(v*v-2*a*s);
             return "= "+d;
         }
         
