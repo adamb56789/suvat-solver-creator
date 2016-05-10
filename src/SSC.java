@@ -448,6 +448,15 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
+        int foobar=0;
+        for(int i=0;i<20;i++){
+            if(includeQuestions[i]){
+                foobar++;
+            }
+        }
+        if(foobar==0){
+            return "\\textrm{Make\\ sure\\ that\\ you\\ have\\ selected\\\\at\\ least\\ one\\ question\\ type.}";
+        }
         if(containsData(createInput[1])){
             docName=arrayToString(createInput[1]);
         }else{
