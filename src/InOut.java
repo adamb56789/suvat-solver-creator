@@ -10,11 +10,11 @@ public class InOut {
     public static void write(String n, String s){
         //Add the string on to the end of document n
         String name ="Created Documents/"+n+".txt";
-        if(s.equals("")){
-            System.out.println("¶");
-        }else{
-            System.out.println("Writing \""+s+"\" to \""+n+"\"");
-        }
+//        if(s.equals("")){
+//            System.out.println("¶");
+//        }else{
+//            System.out.println("Writing \""+s+"\" to \""+n+"\"");
+//        }
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(name, true)))) {
             out.println(s);
         }catch (IOException e) {}

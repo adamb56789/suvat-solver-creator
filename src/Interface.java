@@ -250,7 +250,6 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                 }else{
                     g.drawImage(checkNormal,770,i,this);
                 }
-
             }
             
             //easy/hard

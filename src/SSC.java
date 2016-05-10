@@ -19,7 +19,7 @@ public class SSC extends JFrame implements KeyListener{
     public static int GNum=0;
     public static double G;
     public static String gravity[];
-    public static String latex="Solutions\\ will\\ appear\\ here";
+    public static String latex="\\textrm{Solutions\\ will\\ appear\\ here.}";
     public static String find="";
     public static String version = "0.3";
     public static String docName = "";
@@ -346,6 +346,28 @@ public class SSC extends JFrame implements KeyListener{
         return Double.parseDouble(df.format(ThreadLocalRandom.current().nextDouble(min, max)));
     }
     
+    public static int[][] resetBans(int[][] bans, int EorH){
+        int NBans=0;
+        for(int i=0;i<30;i++){
+            bans[EorH][i]=0;
+        }
+        for(int i=0;i<20;i++){
+            if(!includeQuestions[i]){
+                bans[0][NBans]=i;
+                bans[1][NBans]=i;
+                NBans++;
+            }
+        }
+        for(int i=0;i<20;i+=2){
+            if(!includeQuestions[i] || !includeQuestions[i+1]){
+                bans[0][NBans]=20+i/2;
+                bans[1][NBans]=20+i/2;
+                NBans++;
+            }
+        }
+        return bans;
+    }
+    
     public static String solve(){
         InOut.getExplanations();
         //Getting the list of entered values
@@ -426,7 +448,6 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static String create(){
-        
         if(containsData(createInput[1])){
             docName=arrayToString(createInput[1]);
         }else{
@@ -459,11 +480,29 @@ public class SSC extends JFrame implements KeyListener{
         }
         int NQuestions=Integer.parseInt(arrayToString(createInput[0]));
         String[][][][] r=InOut.getResources();
-        String[] questions=new String[NQuestions];
         int[][] rng=new int[NQuestions][2];
         double[][] rngD=new double[NQuestions][3];
-        int[][] bans=new int[2][NQuestions];
+        int[][] bans=new int[2][30];
         int[] NBans=new int[2];
+        int NPermabans=0;
+        
+        for(int i=0;i<20;i++){
+            if(!includeQuestions[i]){
+                NPermabans++;
+            }
+        }
+        for(int i=0;i<20;i+=2){
+            if(!includeQuestions[i] || !includeQuestions[i+1]){
+                NPermabans++;
+            }
+        }
+
+        bans=resetBans(bans,0);
+        bans=resetBans(bans,1);
+        NBans[0]=NPermabans;
+        NBans[1]=NPermabans;
+        
+        System.out.println(Arrays.deepToString(bans));
         
         for(int i=0;i<NQuestions;i++){
             if(difficulties[0]&&!difficulties[1]){
@@ -504,16 +543,15 @@ public class SSC extends JFrame implements KeyListener{
             NBans[EorH]++;
             
             if(NBans[EorH]==30){
-                NBans[EorH]=0;
-                for(int j=0;j<30;j++){
-                    bans[EorH][j]=0;
-                }
+                NBans[EorH]=NPermabans;
+                bans=resetBans(bans,EorH);
             }
             rngD[i][0]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][5]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][6]),decimalPlaces);
             rngD[i][1]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][7]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][8]),decimalPlaces);
             rngD[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][10]),decimalPlaces);
         }
         
+        System.out.println(Arrays.deepToString(rng));
         String[][] rngDS=new String[NQuestions][3];
         if(decimalPlaces==0){
             for(int i=0;i<NQuestions;i++){
@@ -674,6 +712,6 @@ public class SSC extends JFrame implements KeyListener{
                 InOut.write(docNameA,"");
             }
         }
-        return "Created";
+        return "\\textrm{Document(s)\\ created.}";
     }
 }
