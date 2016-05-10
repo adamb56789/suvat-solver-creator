@@ -21,7 +21,7 @@ public class SSC extends JFrame implements KeyListener{
     public static String gravity[];
     public static String latex="\\textrm{Solutions\\ will\\ appear\\ here.}";
     public static String find="";
-    public static String version = "0.3";
+    public static String version = "0.4";
     public static String docName = "";
     public static String docNameA = "";
     public static boolean[] includeQuestions;
