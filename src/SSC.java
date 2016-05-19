@@ -191,7 +191,6 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        System.out.println();
         input = new String[5][15];
         createInput = new String[2][64];
         createInput[0][0]="1";
