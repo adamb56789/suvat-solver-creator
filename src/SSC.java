@@ -210,7 +210,7 @@ public class SSC extends JFrame implements KeyListener{
         gravity[4] = "Moon (1.62)";
         gravity[5] = "Sun (273)";
         gravity[6] = "Pluto (0.62)";
-        createInput[1][0]="Untitled Document";
+        createInput[1][0]="Untitled Document "+explain.parseD(RNG(0,999999,0));
         createLength[1]=1;
         InOut.getExplanations();
         javax.swing.SwingUtilities.invokeLater(() -> {
@@ -629,13 +629,13 @@ public class SSC extends JFrame implements KeyListener{
                     rngDS[i][2]=G+"";
                 }
                 //Display the explanation
-                String explain=r[1][rng[i][0]][rng[i][1]][1];
+                String explain=r[1][rng[i][0]][rng[i][1]][0];
                 explain+=rngDS[i][0];
-                explain+=r[1][rng[i][0]][rng[i][1]][2];
+                explain+=r[1][rng[i][0]][rng[i][1]][1];
                 explain+=rngDS[i][1];
-                explain+=r[1][rng[i][0]][rng[i][1]][3];
+                explain+=r[1][rng[i][0]][rng[i][1]][2];
                 explain+=rngDS[i][2];
-                explain+=r[1][rng[i][0]][rng[i][1]][4];
+                explain+=r[1][rng[i][0]][rng[i][1]][3];
                 
                 //Solution(s)
                 String[][] v={{"S = ","U = ","V = ","A = ","T = "},{"?","?","?","?","?"},{" m"," m/s"," m/s"," m/s/s"," s"}};

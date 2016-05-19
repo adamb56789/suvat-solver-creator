@@ -20,8 +20,12 @@ public class InOut {
         }catch (IOException e) {}
     }
     
-    //includesG text text text text min max min max min max
-    //placeHolder text text text text
+    //Name includesG text text text text min max min max min max _
+    //Name text text text text placeHolder placeHolder placeHolder placeHolder placeHolder placeHolder placeholder _
+    //Easy questions
+    //Hard questions
+    //Easy explanations
+    //Hard explanatios
     public static String[][][][] getResources(){
         String[][][][] data=new String[2][2][30][11];
         
@@ -31,8 +35,8 @@ public class InOut {
                 for(int i=0;i<2;i++){
                     for(int j=0;j<2;j++){
                         for(int k=0;k<30;k++){
-                            for(int l=0;l<11;l++){
-                                data[i][j][k][l]=bR.readLine();
+                            for(int l=0;l<13;l++){
+                                if(l!=0&&l!=12){data[i][j][k][l-1]=bR.readLine();}else{bR.readLine();}
                             }
                         }
                     }
