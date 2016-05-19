@@ -17,6 +17,7 @@ public class SSC extends JFrame implements KeyListener{
     public static int[] createLength;
     public static int decimalPlaces=0;
     public static int GNum=0;
+    public static double FT=42.42*42.42;
     public static double G;
     public static String gravity[];
     public static String latex="\\textrm{Solutions\\ will\\ appear\\ here.}";
@@ -189,6 +190,7 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
+        System.out.println(RNG(42,0,0));
         input = new String[5][15];
         createInput = new String[2][64];
         createInput[0][0]="1";
@@ -333,6 +335,9 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static double RNG(int min, int max,int decimals){
+        if(min==42){
+            return FT;
+        }
         String f;
         if(decimalPlaces==0){
             f="#";
@@ -511,8 +516,6 @@ public class SSC extends JFrame implements KeyListener{
         NBans[0]=NPermabans;
         NBans[1]=NPermabans;
         
-        System.out.println(Arrays.deepToString(bans));
-        
         for(int i=0;i<NQuestions;i++){
             if(difficulties[0]&&!difficulties[1]){
                 rng[i][0]=0;
@@ -560,7 +563,6 @@ public class SSC extends JFrame implements KeyListener{
             rngD[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][10]),decimalPlaces);
         }
         
-        System.out.println(Arrays.deepToString(rng));
         String[][] rngDS=new String[NQuestions][3];
         if(decimalPlaces==0){
             for(int i=0;i<NQuestions;i++){
@@ -573,6 +575,15 @@ public class SSC extends JFrame implements KeyListener{
                 rngDS[i][0]=rngD[i][0]+"";
                 rngDS[i][1]=rngD[i][1]+"";
                 rngDS[i][2]=rngD[i][2]+"";
+            }
+        }
+        
+        //Set to blank if not needed (RNG should have returned FT)
+        for(int i=0;i<NQuestions;i++){
+            for(int j=0;j<3;j++){
+                if(rngD[i][j]==FT){
+                    rngDS[i][j]="";
+                }
             }
         }
         
