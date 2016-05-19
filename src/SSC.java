@@ -11,23 +11,24 @@ public class SSC extends JFrame implements KeyListener{
     private final Interface draw;
     public static String[][] input;
     public static int[] length;
-    public static String highlighted=""; //"s", "u", "v", "a", "t", " ",
-    public static String createHighlighted=""; //"q", "n"
+    public static String highlighted = ""; //"s", "u", "v", "a", "t", " ",
+    public static String createHighlighted = ""; //"q", "n"
     public static String[][] createInput;
     public static int[] createLength;
-    public static int decimalPlaces=0;
-    public static int GNum=0;
-    public static double FT=42.42*42.42;
+    public static int decimalPlaces = 0;
     public static double G;
     public static String gravity[];
-    public static String latex="\\textrm{Solutions\\ will\\ appear\\ here.}";
-    public static String find="";
+    public static int GNum = 0;
+    public static double FT = 42.42*42.42*42.42*42.42;
+    public static int SN = 69696969;
+    public static String latex = "\\textrm{Solutions\\ will\\ appear\\ here.}";
+    public static String find = "";
     public static String version = "0.4";
     public static String docName = "";
     public static String docNameA = "";
     public static boolean[] includeQuestions;
     public static boolean[] difficulties;
-    public static boolean makeAnswers=true;
+    public static boolean makeAnswers = true;
     public static boolean solveMode = true;
     
 
@@ -190,7 +191,7 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        System.out.println(RNG(42,0,0));
+        System.out.println();
         input = new String[5][15];
         createInput = new String[2][64];
         createInput[0][0]="1";
@@ -335,8 +336,11 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static double RNG(int min, int max,int decimals){
-        if(min==42){
+        if(min==42){//If value not used
             return FT;
+        }
+        if(max==SN){//If value is set
+            return min;
         }
         String f;
         if(decimalPlaces==0){
@@ -447,7 +451,7 @@ public class SSC extends JFrame implements KeyListener{
             case "uvt": if("s".equals(find)){return explain.uvt_s(u,v,t);}else if("a".equals(find)){return explain.uvt_a(u,v,t);}else{return "Error";}
             case "uat": if("s".equals(find)){return explain.uat_s(u,a,t);}else if("v".equals(find)){return explain.uat_v(u,a,t);}else{return "Error";}
             case "uva": if("s".equals(find)){return explain.uva_s(u,v,a);}else if("t".equals(find)){return explain.uva_t(u,v,a);}else{return "Error";}
-            case "vat": if("s".equals(find)){return explain.vat_s(v,a,t);}else if("u".equals(find)){return solve.vat_u(v,a,t);}else{return "Error";}
+            case "vat": if("s".equals(find)){return explain.vat_s(v,a,t);}else if("u".equals(find)){return explain.vat_u(v,a,t);}else{return "Error";}
         }
         return "Error";
     }

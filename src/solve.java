@@ -32,12 +32,20 @@ public class solve {
         
         public static String sua_v(double s, double u, double a){
             double d=Math.sqrt(u*u+2*a*s);
-            return "= "+d;
+            if(Double.isNaN(d)){
+                return "=\\mathrm{No\\ real\\ solution\\\\ square\\ root\\ of\\ a\\ negative}";
+            }else{
+                return "= "+d;
+            }
         }
         
         public static String sua_t(double s, double u, double a){
             double d=((Math.sqrt(u*u+2*a*s))-u)/a;
-            return "= "+d;
+            if(Double.isNaN(d)){
+                return "=\\mathrm{No\\ real\\ solution\\\\ square\\ root\\ of\\ a\\ negative}";
+            }else{
+                return "= "+d;
+            }
         }
         
         public static String sva_u(double s, double v, double a){
@@ -51,7 +59,11 @@ public class solve {
         
         public static String sva_t(double s, double v, double a){
             double d=((Math.sqrt(v*v+2*a*s))-v)/a;
-            return "= "+d;
+            if(Double.isNaN(d)){
+                return "=\\mathrm{No\\ real\\ solution\\\\ square\\ root\\ of\\ a\\ negative}";
+            }else{
+                return "= "+d;
+            }
         }
         
         public static String suv_a(double s, double u, double v){
