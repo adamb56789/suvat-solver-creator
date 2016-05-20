@@ -627,9 +627,9 @@ public class SSC extends JFrame implements KeyListener{
                     question+=G;
                 }
                 
-                if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
-                    rngDS[i][2]=G+"";
-                }
+//                if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
+//                    rngDS[i][2]=G+"";
+//                }
                 //Display the explanation
                 String explain=r[1][rng[i][0]][rng[i][1]][0];
                 explain+=rngDS[i][0];
@@ -640,12 +640,15 @@ public class SSC extends JFrame implements KeyListener{
                 explain+=r[1][rng[i][0]][rng[i][1]][3];
                 
                 //Solution(s)
-//                System.out.println(Arrays.deepToString(rngD));
-//                System.out.println(Arrays.deepToString(rngDS));
+                System.out.println(Arrays.deepToString(rngD));
+                System.out.println(Arrays.deepToString(rngDS));
                 for(int j=0;j<3;j++){
                     if(rngD[i][j]==FT){
+                        System.out.println("J");
                         if("8024".equals(r[0][rng[i][0]][rng[i][1]][6+(2*j)])){
                             rngD[i][j]=G;
+                            System.out.println(Arrays.deepToString(rngD));
+                            System.out.println(Arrays.deepToString(rngDS));
                             rngDS[i][j]=G+"";
                         }else{
                             rngD[i][j]=Double.parseDouble(r[0][rng[i][0]][rng[i][1]][6+(2*j)]);
@@ -653,8 +656,8 @@ public class SSC extends JFrame implements KeyListener{
                         }
                     }
                 }
-//                System.out.println(Arrays.deepToString(rngD));
-//                System.out.println(Arrays.deepToString(rngDS));
+                System.out.println(Arrays.deepToString(rngD));
+                System.out.println(Arrays.deepToString(rngDS));
                 String[][] v={{"S = ","U = ","V = ","A = ","T = "},{"?","?","?","?","?"},{" m"," m/s"," m/s"," m/s/s"," s"}};
                 String nv="";
                 String S="Solution: ";
@@ -703,9 +706,9 @@ public class SSC extends JFrame implements KeyListener{
                         break;
                     case 11: S+="t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="suv";
                         break;
-                    case 12: S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="uvt";
+                    case 12: S+="s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="uvt";
                         break;
-                    case 13: S+="s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
+                    case 13: S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
                         break;
                     case 14: S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uat";
                         break;

@@ -26,7 +26,7 @@ While a falling object fell
 _
 Easy Q3
 0
-Adam travels to an alien planet and drops a rock of a 
+Adam travels to an alien planet and drops a rock off a 
  m high cliff. If it takes 
 
  seconds for the rock to hit the ground, how fast will it be going just before it hits the ground?
@@ -68,7 +68,7 @@ Easy Q6
 After sliding along some ice for 
  m, an ice hockey puck is travelling at 
  m/s. If it takes 
-seconds for this to happen, what was the puck’s acceleration?
+ seconds for this to happen, what was the puck's acceleration?
 20
 100
 2
@@ -146,7 +146,7 @@ Easy Q12
 A train has only 
  m left on the track in front of it, and it is traveling at 
 
- m/s. If it stops moving just as it reaches the end of the track, how long did it take to slow down?
+ m/s. If it decelerates evenly and it stops moving just as it reaches the end of the track, how long did it take to slow down?
 200
 1000
 10
@@ -172,7 +172,7 @@ Easy Q14
 A cyclist accelerates from 
  to 
  m/s over 
- s. What was the cyclist’s acceleration?
+ s. What was the cyclist's acceleration?
 0
 69
 2
@@ -234,159 +234,159 @@ At the end of a speech, the president of the US drops a microphone. If the micro
 _
 Easy Q19
 0
-a
-b
-c
-d
-0
+How much distance is required for a car to accelerate to 
+ m/s if it has an acceleration of 
+ m/s/s. The car is not necessarily stationary to start off with. If it takes 
+ seconds for this to happen, how far did the car travel during this time?
 10
-0
+30
+2
+4
 10
-0
-10
+20
 _
 Easy Q20
 0
-a
-b
-c
-d
-0
+A car puts on the brakes and slows down to a speed of 
+ m/s. If it was decelerating at 
+ m/s/s, and it takes 
+ s for it to do this, how fast was it traveling before it puts the brakes on?
+2
 10
-0
-10
-0
+-10
+-5
+2
 10
 _
 Easy Q21
 0
-a
-b
-c
-d
-0
+An object travels 
+ m while accelerating at 
+ m/s/s, which takes 
+ seconds. What was its velocity at the beginning and the end of this distance?
 10
-0
+1000
+2
 10
-0
-10
+1
+5
 _
 Easy Q22
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+If a UFO travels 
+ m with an initial velocity of 
+ m/s for 
+ seconds, how fast will it be going and what was its acceleration?
+20000
+30000
+1000
+2000
+1
+60
 _
 Easy Q23
 0
-a
-b
-c
-d
-0
+A train rolls down a hill which is 
+ m long. If it is traveling at 
+ m/s at the bottom and it took 
+ seconds for it to reach the bottom, then how fast was it going at the top of hill, and what was its acceleration?
+100
+200
+5
 10
-0
-10
-0
-10
+21
+30
 _
 Easy Q24
-0
-a
-b
-c
-d
-0
+1
+If the King of Alwaysland rolls a coin off the roof of a building that is 
+
+
+ m high, ignoring air resistance, how fast is it going when it reaches the ground, and how long was the fall? G = 
 10
+500
+42
 0
-10
-0
-10
+42
+8024
 _
 Easy Q25
-0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+1
+If a bullet is shot downwards from a helicopter 
+ m in the air, and it hits the ground at 
+
+ m/s. What was the velocity of the bullet after it left the barrel of the gun, and how long did it take for it to hit the ground? G = 
+400
+500
+50
+150
+42
+8024
 _
 Easy Q26
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+An arrow is shot at a target that is 
+ m away. The arrow was shot using a super accurate magic bow that shoots arrows at extremely high speeds that do not drop off due to gravity. When an arrow leaves the bow it is travelling at 
+ m/s. Just before it hits the target, it is traveling at 
+ m/s. How long did take for the arrow to hit the target, and was its deceleration?
+150
+1000
+400
+500
+300
+400
 _
 Easy Q27
 0
-a
-b
-c
-d
+A cyclist accelerates from 
+ m/s to 
+ m/s over 
+ seconds. What was the cyclist's acceleration, and what distance did he cover during this time?
 0
+4
+5
 10
-0
-10
-0
+3
 10
 _
 Easy Q28
+1
+A marble is rolled of a building, and it takes 
+
+
+ seconds for the marble to hit the ground. How fast was the marble traveling when it hit the ground, and how high is the building? G = 
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
+42
+8024
 0
 10
 _
 Easy Q29
-0
-a
-b
-c
-d
-0
+1
+A ball is thrown out of a building downwards at 
+ m/s. If it reaches 
+
+ m/s by the time it hits the ground, then how high up was it thrown from, and how long did it take for it to hit the ground? G = 
+1
+2
+5
 10
-0
-10
-0
-10
+42
+8024
 _
 Easy Q30
 0
-a
-b
-c
-d
-0
+A cyclist hits a wall at 
+ m/s after coasting down from the top of a hill. If he was accelerating at 
+ m/s/s for 
+ seconds, how fast was he going at the top of the hill, and how much distance did he cover?
+4
 10
-0
-10
-0
-10
+1
+69
+1
+4
 _
 Hard Q1
 0

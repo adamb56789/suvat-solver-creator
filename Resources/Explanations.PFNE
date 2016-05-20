@@ -3,7 +3,7 @@ s=ut+\frac{1}{2}at^{2}\\\\s-ut=\frac{1}{2}at^{2}\\\\-ut=\frac{1}{2}at^{2}-s\\\\u
 )^{2}-(
 ))}{(
 )}\\\\u
-s=vt-\frac{1}{2}at^{2}\\\\s-vt=\frac{1}{2}at^{2}\\\\-vt=\frac{1}{2}at^{2}+s\\\\v=\frac{\frac{1}{2}at^{2}+s}{t}\\\\v=\frac{\frac{1}{2}(
+s=vt-\frac{1}{2}at^{2}\\\\s-vt=-\frac{1}{2}at^{2}\\\\-vt=-\frac{1}{2}at^{2}+s\\\\v=\frac{\frac{1}{2}at^{2}+s}{t}\\\\v=\frac{\frac{1}{2}(
 )(
 )^{2}+(
 )}{(
