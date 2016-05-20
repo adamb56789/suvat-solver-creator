@@ -336,7 +336,7 @@ public class SSC extends JFrame implements KeyListener{
     }
     
     public static double RNG(int min, int max,int decimals){
-        if(min==42){//If value not used
+        if(min==42){//If a value not used
             return FT;
         }
         if(max==SN){//If value is set
@@ -592,18 +592,18 @@ public class SSC extends JFrame implements KeyListener{
         }
         
         for(int i=0;i<NQuestions;i++){
+            System.out.println(Arrays.deepToString(rngDS));
             String question=i+1+". ";
             question+=r[0][rng[i][0]][rng[i][1]][1];
             question+=rngDS[i][0];
             question+=r[0][rng[i][0]][rng[i][1]][2];
             question+=rngDS[i][1];
             question+=r[0][rng[i][0]][rng[i][1]][3];
-            if("0".equals(r[0][rng[i][0]][rng[i][1]][0])){
-                question+=rngDS[i][2];
-            }else{
+            question+=rngDS[i][2];
+            question+=r[0][rng[i][0]][rng[i][1]][4];
+            if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
                 question+=G;
             }
-            question+=r[0][rng[i][0]][rng[i][1]][4];
             
             //The final writing
             InOut.write(docName, question);
@@ -622,14 +622,13 @@ public class SSC extends JFrame implements KeyListener{
                 question+=r[0][rng[i][0]][rng[i][1]][2];
                 question+=rngDS[i][1];
                 question+=r[0][rng[i][0]][rng[i][1]][3];
-                if("0".equals(r[0][rng[i][0]][rng[i][1]][0])){
-                    question+=rngDS[i][2];
-                }else{
+                question+=rngDS[i][2];
+                question+=r[0][rng[i][0]][rng[i][1]][4];
+                if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
                     question+=G;
                 }
-                question+=r[0][rng[i][0]][rng[i][1]][4];
                 
-                if(!"0".equals(r[0][rng[i][0]][rng[i][1]][0])){
+                if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
                     rngDS[i][2]=G+"";
                 }
                 //Display the explanation
