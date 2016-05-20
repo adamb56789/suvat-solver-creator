@@ -20,7 +20,6 @@ public class SSC extends JFrame implements KeyListener{
     public static String gravity[];
     public static int GNum = 0;
     public static double FT = 42.42*42.42*42.42*42.42;
-    public static int SN = 69696969;
     public static String latex = "\\textrm{Solutions\\ will\\ appear\\ here.}";
     public static String find = "";
     public static String version = "0.4";
@@ -191,7 +190,6 @@ public class SSC extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.deepToString(InOut.getResources()));
         input = new String[5][15];
         createInput = new String[2][64];
         createInput[0][0]="1";
@@ -339,9 +337,10 @@ public class SSC extends JFrame implements KeyListener{
         if(min==42){//If a value not used
             return FT;
         }
-        if(max==SN){//If value is set
+        if(max==69){//If value is set
             return min;
         }
+        //If G is used, also add 8024 in the max spot
         String f;
         if(decimalPlaces==0){
             f="#";
@@ -641,69 +640,84 @@ public class SSC extends JFrame implements KeyListener{
                 explain+=r[1][rng[i][0]][rng[i][1]][3];
                 
                 //Solution(s)
+//                System.out.println(Arrays.deepToString(rngD));
+//                System.out.println(Arrays.deepToString(rngDS));
+                for(int j=0;j<3;j++){
+                    if(rngD[i][j]==FT){
+                        if("8024".equals(r[0][rng[i][0]][rng[i][1]][6+(2*j)])){
+                            rngD[i][j]=G;
+                            rngDS[i][j]=G+"";
+                        }else{
+                            rngD[i][j]=Double.parseDouble(r[0][rng[i][0]][rng[i][1]][6+(2*j)]);
+                            rngDS[i][j]=r[0][rng[i][0]][rng[i][1]][6+(2*j)];
+                        }
+                    }
+                }
+//                System.out.println(Arrays.deepToString(rngD));
+//                System.out.println(Arrays.deepToString(rngDS));
                 String[][] v={{"S = ","U = ","V = ","A = ","T = "},{"?","?","?","?","?"},{" m"," m/s"," m/s"," m/s/s"," s"}};
                 String nv="";
                 String S="Solution: ";
                 switch(rng[i][1]){
-                    case 0 : S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and v = "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
+                    case 20 : S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and v = "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
                         break;
-                    case 1 : S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="sut";
+                    case 21 : S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="sut";
                         break;
-                    case 2 : S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="svt";
+                    case 22 : S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="svt";
                         break;
-                    case 3 : S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sua";
+                    case 23 : S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sua";
                         break;
-                    case 4 : S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sva";
+                    case 24 : S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s and t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sva";
                         break;
-                    case 5 : S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="suv";
+                    case 25 : S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="suv";
                         break;
-                    case 6 : S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
+                    case 26 : S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s and s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
                         break;
-                    case 7 : S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="uat";
+                    case 27 : S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="uat";
                         break;
-                    case 8 : S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="uva";
+                    case 28 : S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="uva";
                         break;
-                    case 9 : S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="vat";
+                    case 29 : S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m and u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="vat";
                         break;
-                    case 10: S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
+                    case 0: S+="u "+solve.sat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
                         break;
-                    case 11: S+="v "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
+                    case 1: S+="v "+solve.sat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sat";
                         break;
-                    case 12: S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sut";
+                    case 2: S+="v "+solve.sut_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sut";
                         break;
-                    case 13: S+="a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="sut";
+                    case 3: S+="a "+solve.sut_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="sut";
                         break;
-                    case 14: S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="svt";
+                    case 4: S+="u "+solve.svt_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="svt";
                         break;
-                    case 15: S+="a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="svt";
+                    case 5: S+="a "+solve.svt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="svt";
                         break;
-                    case 16: S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sua";
+                    case 6: S+="v "+solve.sua_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sua";
                         break;
-                    case 17: S+="t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sua";
+                    case 7: S+="t "+solve.sua_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sua";
                         break;
-                    case 18: S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sva";
+                    case 8: S+="u "+solve.sva_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="sva";
                         break;
-                    case 19: S+="t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sva";
+                    case 9: S+="t "+solve.sva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="sva";
                         break;
-                    case 20: S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="suv";
+                    case 10: S+="a "+solve.suv_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="suv";
                         break;
-                    case 21: S+="t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="suv";
+                    case 11: S+="t "+solve.suv_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="suv";
                         break;
-                    case 22: S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="uvt";
+                    case 12: S+="a "+solve.uvt_a(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s/s";nv="uvt";
                         break;
-                    case 23: S+="s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
+                    case 13: S+="s "+solve.uvt_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uvt";
                         break;
-                    case 24: S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uat";
+                    case 14: S+="s "+solve.uat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uat";
                         break;
-                    case 25: S+="v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="uat";
+                    case 15: S+="v "+solve.uat_v(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="uat";
                         break;
-                    case 26: S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uva";
+                    case 16: S+="s "+solve.uva_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="uva";
                         break;
-                    case 27: S+="t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="uva";
+                    case 17: S+="t "+solve.uva_t(rngD[i][0], rngD[i][1], rngD[i][2])+" s";nv="uva";
                         break;
-                    case 28: S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="vat";
+                    case 18: S+="s "+solve.vat_s(rngD[i][0], rngD[i][1], rngD[i][2])+" m";nv="vat";
                         break;
-                    case 29: S+="u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="vat";
+                    case 19: S+="u "+solve.vat_u(rngD[i][0], rngD[i][1], rngD[i][2])+" m/s";nv="vat";
                         break;
                 }
                 

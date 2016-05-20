@@ -4,233 +4,233 @@ While a falling object fell
  m, 
 
  seconds passed. How fast was it going at the start? G = 
-5
-100
+50
+200
 42
-0
+8024
 1
 5
 _
 Easy Q2
-0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+1
+While a falling object fell 
+ m, 
+
+ seconds passed. How fast was it going at the end? G = 
+50
+200
+42
+8024
+1
+5
 _
 Easy Q3
 0
-a
-b
-c
-d
+Adam travels to an alien planet and drops a rock of a 
+ m high cliff. If it takes 
+
+ seconds for the rock to hit the ground, how fast will it be going just before it hits the ground?
+50
+500
+42
 0
-10
-0
-10
-0
+1
 10
 _
 Easy Q4
 0
-a
-b
-c
-d
-0
+How fast is a rocket accelerating if it travels 
+ m with a starting speed of 
+ m/s in 
+ seconds?
+1000
+10000
+100
+1000
 10
-0
-10
-0
-10
+60
 _
 Easy Q5
 0
-a
-b
-c
-d
-0
+At the end of a 
+ m long stretch of train track, a train is traveling at 
+ m/s. If it takes 
+ seconds to reach the end of the track, how fast was it going at the beginning of the stretch of track.
 10
-0
-10
-0
-10
+100
+2
+25
+5
+100
 _
 Easy Q6
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
+After sliding along some ice for 
+ m, an ice hockey puck is travelling at 
+ m/s. If it takes 
+seconds for this to happen, what was the puck’s acceleration?
+20
+100
+2
+5
+2
 10
 _
 Easy Q7
-0
-a
-b
-c
-d
-0
+1
+Mr A is standing on the top of a 
+
+
+ m high cliff. If he drops a stone off the edge, how fast will it be going just before it hits the ground? G = 
 10
+800
+42
 0
-10
-0
-10
+42
+8024
 _
 Easy Q8
-0
-a
-b
-c
-d
-0
+1
+Mr A is standing on the top of a 
+
+
+ m high cliff. If he drops a stone off the edge, how long will it take before it hits the ground? G = 
 10
+800
+42
 0
-10
-0
-10
+42
+8024
 _
 Easy Q9
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
+Over a distance of 
+ m, a UFO reaches 
+ m/s. If it is accelerating at 
+ m/s/s, how fast was it going at the start?
+1000
+10000
+500
+1000
+5
 10
 _
 Easy Q10
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+Over 
+ m, a space probe reaches 
+ m/s. If it is accelerating at 
+ m/s/s, how long did it take the space probe to do this?
+10000
+100000
+5000
+10000
+50
+100
 _
 Easy Q11
 0
-a
-b
-c
-d
-0
+A train has only 
+ m left on the track in front of it, and it is traveling at 
+
+ m/s. How fast does it have to decelerate if it wants to stop right at the end of the track?
+200
+1000
 10
+20
+42
 0
-10
-0
-10
 _
 Easy Q12
 0
-a
-b
-c
-d
-0
+A train has only 
+ m left on the track in front of it, and it is traveling at 
+
+ m/s. If it stops moving just as it reaches the end of the track, how long did it take to slow down?
+200
+1000
 10
+20
+42
 0
-10
-0
-10
 _
 Easy Q13
 0
-a
-b
-c
-d
+A tank accelerates from 
+ to 
+ m/s over 
+ s. What distance did it cover during this time?
 0
-10
-0
-10
-0
-10
+69
+2
+12
+5
+30
 _
 Easy Q14
 0
-a
-b
-c
-d
+A cyclist accelerates from 
+ to 
+ m/s over 
+ s. What was the cyclist’s acceleration?
 0
-10
-0
-10
-0
-10
+69
+2
+12
+2
+20
 _
 Easy Q15
+1
+Mrs Bean drops her car keys into a mineshaft. If it takes 
+
+
+ s for the keys to hit the ground, then how deep is the mineshaft? G = 
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+42
+8024
+1
+30
 _
 Easy Q16
+1
+Charlie the cat falls out of a tree. It takes 
+
+
+ s for Charlie to hit the ground. What was the velocity of Charlie when he hit the ground? G = 
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+42
+8024
+1
+2
 _
 Easy Q17
+1
+If a robot drops a screwdriver, and it reaches 
+
+
+ m/s before it hits the ground, how far did the screwdriver fall? G = 
+42
 0
-a
-b
-c
-d
-0
+2
 10
-0
-10
-0
-10
+42
+8024
 _
 Easy Q18
+1
+At the end of a speech, the president of the US drops a microphone. If the microphone was travelling at 
+
+
+ m/s when it hits the ground, how long did it take for it to hit the ground. G = 
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+6
+69
+42
+8024
 _
 Easy Q19
 0
