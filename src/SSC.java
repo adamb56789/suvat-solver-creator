@@ -22,7 +22,7 @@ public class SSC extends JFrame implements KeyListener{
     public static double FT = 42.42*42.42*42.42*42.42;
     public static String latex = "\\textrm{Solutions\\ will\\ appear\\ here.}";
     public static String find = "";
-    public static String version = "0.5";
+    public static String version = "Beta 0.2";
     public static String docName = "";
     public static String docNameA = "";
     public static boolean[] includeQuestions;
@@ -200,7 +200,7 @@ public class SSC extends JFrame implements KeyListener{
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
         difficulties = new boolean[2];
-        difficulties = allTrue(difficulties);
+        difficulties[0]=true;
         gravity = new String[7];
         gravity[0] = "Earth (9.81)";
         gravity[1] = "10";

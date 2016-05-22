@@ -253,19 +253,19 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             }
             
             //easy/hard
-            for(int i=0,j=335;i<2;i++,j+=120){
-                if(SSC.difficulties[i]){
-                    g.drawImage(checkSelected,j,362,this);
-                }else{
-                    g.drawImage(checkNormal,j,362,this);
-                }
-            }
+//            for(int i=0,j=335;i<2;i++,j+=120){
+//                if(SSC.difficulties[i]){
+//                    g.drawImage(checkSelected,j,362,this);
+//                }else{
+//                    g.drawImage(checkNormal,j,362,this);
+//                }
+//            }
             
             //makeAnswers
             if(SSC.makeAnswers){
-                g.drawImage(checkSelected,260,422,this);
+                g.drawImage(checkSelected,260,422-60,this);
             }else{
-                g.drawImage(checkNormal,260,422,this);
+                g.drawImage(checkNormal,260,422-60,this);
             }
             
             //Combo Boxes
@@ -372,14 +372,14 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Number of decimal places", 100, 195);
             g.drawString("Possible values of G", 100, 255);
             g.drawString("Name of document", 100, 315);
-            g.drawString("Difficulty of questions", 100, 375);
-            g.drawString("Create answer sheet", 100, 435);
+//            g.drawString("Difficulty of questions", 100, 375);
+            g.drawString("Create answer sheet", 100, 375);
             g.drawRect(498,115,310,25);
             g.drawString(SSC.arrayToString(SSC.createInput[1]),264,316);
             
             g.setFont(tiny);
-            g.drawString("Easier",260,375);
-            g.drawString("Harder",380,375);
+//            g.drawString("Easier",260,375);
+//            g.drawString("Harder",380,375);
             g.drawString("sat -> u", 500, 160);
             g.drawString("sat -> v", 660, 160);
             g.drawString("sut -> v", 500, 190);
@@ -541,19 +541,19 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
                     }
 
                     //easy/hard
-                    for (int i = 0, j = 335; i < 2; i++, j += 120) {
-                        if (SSC.over(j, j + 16, 362, 378, x, y)) {
-                            if (SSC.difficulties[SSC.swap(i)]) {
-                                SSC.difficulties[i] ^= true;
-                            } else {
-                                SSC.difficulties[i] ^= true;
-                                SSC.difficulties[SSC.swap(i)] ^= true;
-                            }
-                        }
-                    }
+//                    for (int i = 0, j = 335; i < 2; i++, j += 120) {
+//                        if (SSC.over(j, j + 16, 362, 378, x, y)) {
+//                            if (SSC.difficulties[SSC.swap(i)]) {
+//                                SSC.difficulties[i] ^= true;
+//                            } else {
+//                                SSC.difficulties[i] ^= true;
+//                                SSC.difficulties[SSC.swap(i)] ^= true;
+//                            }
+//                        }
+//                    }
                     
                     //makeAnswers
-                    if(SSC.over(260, 276, 422, 438, x, y)){
+                    if(SSC.over(260, 276, 422-60, 438-60, x, y)){
                         SSC.makeAnswers^=true;
                     }
 
