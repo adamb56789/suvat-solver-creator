@@ -591,7 +591,7 @@ public class SSC extends JFrame implements KeyListener{
         }
         
         for(int i=0;i<NQuestions;i++){
-            System.out.println(Arrays.deepToString(rngDS));
+//            System.out.println(Arrays.deepToString(rngDS));
             String question=i+1+". ";
             question+=r[0][rng[i][0]][rng[i][1]][1];
             question+=rngDS[i][0];
@@ -603,12 +603,15 @@ public class SSC extends JFrame implements KeyListener{
             if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
                 question+=G;
             }
-            
+            question+=".";
             //The final writing
             InOut.write(docName, question);
             InOut.write(docName, "");
         }
-        
+        String[][] rngDST = new String[NQuestions][3];
+        for (int i=0;i<NQuestions;i++) {
+            System.arraycopy(rngDS[i], 0, rngDST[i], 0, 3);
+        }
         //Answers document
         if(makeAnswers){
             docNameA=docName+" - Answers";
@@ -626,29 +629,13 @@ public class SSC extends JFrame implements KeyListener{
                 if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
                     question+=G;
                 }
-                
-//                if("1".equals(r[0][rng[i][0]][rng[i][1]][0])){
-//                    rngDS[i][2]=G+"";
-//                }
-                //Display the explanation
-                String explain=r[1][rng[i][0]][rng[i][1]][0];
-                explain+=rngDS[i][0];
-                explain+=r[1][rng[i][0]][rng[i][1]][1];
-                explain+=rngDS[i][1];
-                explain+=r[1][rng[i][0]][rng[i][1]][2];
-                explain+=rngDS[i][2];
-                explain+=r[1][rng[i][0]][rng[i][1]][3];
+                question+=".";
                 
                 //Solution(s)
-                System.out.println(Arrays.deepToString(rngD));
-                System.out.println(Arrays.deepToString(rngDS));
                 for(int j=0;j<3;j++){
                     if(rngD[i][j]==FT){
-                        System.out.println("J");
                         if("8024".equals(r[0][rng[i][0]][rng[i][1]][6+(2*j)])){
                             rngD[i][j]=G;
-                            System.out.println(Arrays.deepToString(rngD));
-                            System.out.println(Arrays.deepToString(rngDS));
                             rngDS[i][j]=G+"";
                         }else{
                             rngD[i][j]=Double.parseDouble(r[0][rng[i][0]][rng[i][1]][6+(2*j)]);
@@ -656,8 +643,13 @@ public class SSC extends JFrame implements KeyListener{
                         }
                     }
                 }
-                System.out.println(Arrays.deepToString(rngD));
-                System.out.println(Arrays.deepToString(rngDS));
+                //Order
+                String os = r[1][rng[i][0]][rng[i][1]][7];
+                int[] o = new int[6];
+                for(int j=0; j<6;j++){
+                    o[j]=Character.getNumericValue(os.charAt(j));
+                    o[j]--;
+                }
                 String[][] v={{"S = ","U = ","V = ","A = ","T = "},{"?","?","?","?","?"},{" m"," m/s"," m/s"," m/s/s"," s"}};
                 String nv="";
                 String S="Solution: ";
@@ -738,6 +730,13 @@ public class SSC extends JFrame implements KeyListener{
                             break;
                     }
                 }
+                //Display the explanation
+                String explain="";
+                for(int j=0;j<6;j++){
+                    explain+=r[1][rng[i][0]][rng[i][1]][j];
+                    try{explain += rngDS[i][o[j]];}catch(Exception e){}
+                }
+                explain+=r[1][rng[i][0]][rng[i][1]][6];
                 
                 InOut.write(docNameA,question);
                 InOut.write(docNameA,"");

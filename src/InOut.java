@@ -10,18 +10,18 @@ public class InOut {
     public static void write(String n, String s){
         //Add the string on to the end of document n
         String name ="Created Documents/"+n+".txt";
-        if(s.equals("")){
-            System.out.println("¶");
-        }else{
-            System.out.println("Writing \""+s+"\" to \""+n+"\"");
-        }
+//        if(s.equals("")){
+//            System.out.println("¶");
+//        }else{
+//            System.out.println("Writing \""+s+"\" to \""+n+"\"");
+//        }
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(name, true)))) {
             out.println(s);
         }catch (IOException e) {}
     }
     
     //Name includesG text text text text min max min max min max _
-    //Name text text text text placeHolder placeHolder placeHolder placeHolder placeHolder placeHolder placeholder _
+    //Name text text text text text text text order placeHolder placeHolder placeholder _
     //Easy questions
     //Hard questions
     //Easy explanations
@@ -51,7 +51,7 @@ public class InOut {
     public static void getExplanations(){
         String[][] data=new String[20][5];
             try{
-            FileReader fR = new FileReader("Resources/Explanations.PFNE");
+            FileReader fR = new FileReader("Resources/Explanations.txt");
             try (BufferedReader bR = new BufferedReader(fR)) {
                 for(int i=0;i<20;i++){
                     for(int j=0;j<5;j++){

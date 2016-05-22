@@ -312,10 +312,10 @@ If the King of Alwaysland rolls a coin off the roof of a building that is
 _
 Easy Q25
 1
-If a bullet is shot downwards from a helicopter 
+If a projectile is shot downwards from a helicopter 
  m in the air, and it hits the ground at 
 
- m/s. What was the velocity of the bullet after it left the barrel of the gun, and how long did it take for it to hit the ground? G = 
+ m/s. What was the velocity of the projectile after it left the barrel of the the firing mechanism, and how long did it take for it to hit the ground? G = 
 400
 500
 50
@@ -779,391 +779,391 @@ d
 10
 _
 Easy E1
-A
-B
-C
-D
-
-
-
-
+It took 
+ seconds for an object to fall 
+ m, so s = 
+, and t = 
+. G was 
+, so a = 
+.
+311322
 
 
 
 _
 Easy E2
-A
-B
-C
-D
-
-
-
-
+It took 
+ seconds for an object to fall 
+ m, so s = 
+, and t = 
+. G was 
+, so a = 
+.
+311322
 
 
 
 _
 Easy E3
-A
-B
-C
-D
+It took 
+ seconds for the rock to fall 
+ m, so s = 
+, and t = 
+. We know that u = 
 
-
-
-
+ because the rock is not moving when he drops it.
+311320
 
 
 
 _
 Easy E4
-A
-B
-C
-D
-
-
-
-
+The rocket starts of at 
+ m/s, so u = 
+, then it travels 
+ m in 
+ seconds, so s = 
+, and t = 
+.
+221313
 
 
 
 _
 Easy E5
-A
-B
-C
-D
-
-
-
-
+The train takes 
+seconds to travel 
+m, so s = 
+, and t = 
+. The train was traveling at 
+ m/s at the end of this distance, so v = 
+.
+313122
 
 
 
 _
 Easy E6
-A
-B
-C
-D
-
-
-
-
+The puck takes 
+ seconds to slide 
+ m, so s = 
+, and t = 
+. The puck is moving at 
+ m/s at the end of the distance, so v = 
+.
+311322
 
 
 
 _
 Easy E7
-A
-B
-C
-D
+The cliff is 
+ m high, so s = 
+. We know that the stone is not moving when he drops it, so u = 
+. G was 
+, so a = 
+.
 
-
-
-
+112300
 
 
 
 _
 Easy E8
-A
-B
-C
-D
+The cliff is 
+ m high, so s = 
+. We know that the stone is not moving when he drops it, so u = 
+. G was 
+, so a = 
+.
 
-
-
-
+112300
 
 
 
 _
 Easy E9
-A
-B
-C
-D
-
-
-
-
+The UFO is capable of accelerating at 
+ m/s/s, so a = 
+. The UFO reaches 
+ m/s at the end of the distance, so v = 
+. The distance that the UFO has to travel before it reaches that speed is 
+, so s = 
+.
+332211
 
 
 
 _
 Easy E10
-A
-B
-C
-D
-
-
-
-
+The probe is capable of accelerating at 
+ m/s/s, so a = 
+. The probe reaches 
+ m/s at the end of the distance, so v = 
+. The distance that the probe has to travel before it reaches that speed is 
+, so s = 
+.
+332211
 
 
 
 _
 Easy E11
-A
-B
-C
-D
+The train is traveling at 
+ m/s at the start of the track, so u = 
+. The train stops at the end of the track, which means that its final velocity (v) = 
+. It stops after 
+ m, so s = 
+.
 
-
-
-
+223110
 
 
 
 _
 Easy E12
-A
-B
-C
-D
+The train is traveling at 
+ m/s at the start of the track, so u = 
+. The train stops at the end of the track, which means that its final velocity (v) = 
+. It stops after 
+ m, so s = 
+.
 
-
-
-
+223110
 
 
 
 _
 Easy E13
-A
-B
-C
-D
-
-
-
-
+The tank starts off at 
+ m/s, so u = 
+, and after 
+ s it is traveling at 
+ m/s, so v = 
+, and t = 
+.
+113223
 
 
 
 _
 Easy E14
-A
-B
-C
-D
-
-
-
-
+The cyclist starts off at 
+ m/s, so u = 
+, and after 
+ s it is traveling at 
+ m/s, so v = 
+, and t = 
+.
+113223
 
 
 
 _
 Easy E15
-A
-B
-C
-D
+When Mrs Bean drops her car keys, the car keys start off not moving, so u = 
+. It takes 
+ s for the keys to reach the bottom, so t = 
+. G was 
+, so a = 
+.
 
-
-
-
+133220
 
 
 
 _
 Easy E16
-A
-B
-C
-D
+When Charlie falls out of the tree, he starts off not moving, so u = 
+. It takes 
+ s for charlie to hit the ground, so t = 
+. G was 
+, so a = 
+.
 
-
-
-
+133220
 
 
 
 _
 Easy E17
-A
-B
-C
-D
+The robot drops the screwdriver, so the screwdriver must initially not be moving, so u = 
+. The screwdriver reaches 
+ before it hits the ground, so v = 
+. G was 
+, so a = 
+.
 
-
-
-
+122330
 
 
 
 _
 Easy E18
-A
-B
-C
-D
+The microphone starts off not moving, so u = 
+. Then, by the time it has it the ground, it is at 
+ m/s, so v = 
+. G was 
+, so a = 
+.
 
-
-
-
+122330
 
 
 
 _
 Easy E19
-A
-B
-C
-D
-
-
-
-
+After the car was moving for 
+ seconds, it was traveling at 
+ m/s, so v = 
+, and t = 
+. The was accelerating at 
+ m/s/s, so a = 
+.
+311322
 
 
 
 _
 Easy E20
-A
-B
-C
-D
-
-
-
-
+It takes the car 
+ seconds to slow down to 
+ m/s, so v = 
+, and t = 
+. The car is decelerating at 
+ m/s/s, so a = 
+.
+311322
 
 
 
 _
 Easy E21
-A
-B
-C
-D
+Distance = 
+, acceleration = 
+, and time = 
+.
 
 
 
-
+123000
 
 
 
 _
 Easy E22
-A
-B
-C
-D
-
-
-
+he initial velocity of the UFO (u) = 
+. It takes 
+ s to travel 
+ m, so s = 
+, and t = 
+.
+231130
 
 
 
 
 _
 Easy E23
-A
-B
-C
-D
-
-
-
-
+The train travels 
+ m in 
+ s, so s = 
+, and t = 
+. At the end of this distance, at the bottom of the hill, it is going at 
+ m/s, so v = 
+.
+131322
 
 
 
 _
 Easy E24
-A
-B
-C
-D
+As the coin falls of the building, it will not have any downward velocity at all, so u = 
+. The building is 
+ m high, so s = 
+. G was 
+, so a = 
+.
 
-
-
-
+211330
 
 
 
 _
 Easy E25
-A
-B
-C
-D
-
-
-
-
+The helicopter is 
+ m in the air, so s = 
+. The projectile is traveling at 
+ m/s when it hits the ground, so v = 
+. G was 
+, so a = 
+.
+112233
 
 
 
 _
 Easy E26
-A
-B
-C
-D
-
-
-
-
+The distance from the bow to the target is 
+, so s = 
+. It is traveling at 
+ m/s when it leaves the bow, and at 
+ m/s by the time it has reached the target, so u = 
+, and v = 
+.
+112323
 
 
 
 _
 Easy E27
-A
-B
-C
-D
-
-
-
-
+The cyclist starts of at 
+, and finishes at 
+, so u = 
+, and v = 
+. This takes 
+ seconds, so t = 
+.
+121233
 
 
 
 _
 Easy E28
-A
-B
-C
-D
-
-
-
-
+At the top of the building, the marble is moving at 
+ m/s, so u = 
+. This takes 
+ seconds, so t = 
+. G was 
+, so a = 
+.
+113322
 
 
 
 _
 Easy E29
-A
-B
-C
-D
-
-
-
-
+The ball is thrown downwards at 
+, so u = 
+ m/s. When it reaches the ground, the ball is traveling at 
+m/s, so v = 
+. G was 
+, so a = 
+.
+112233
 
 
 
 _
 Easy E30
-A
-B
-C
-D
-
-
-
-
+At the bottom of the hill the cyclist is traveling at 
+ m/s, so v = 
+. While accelerating at 
+ m/s/s, this takes him 
+ seconds, so a = 
+, and t = 
+.
+112323
 
 
 
