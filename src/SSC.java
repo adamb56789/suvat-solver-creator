@@ -22,7 +22,7 @@ public class SSC extends JFrame implements KeyListener{
     public static double FT = 42.42*42.42*42.42*42.42;
     public static String latex = "\\textrm{Solutions\\ will\\ appear\\ here.}";
     public static String find = "";
-    public static String version = "Beta 0.2";
+    public static String version = "1.0";
     public static String docName = "";
     public static String docNameA = "";
     public static boolean[] includeQuestions;
@@ -200,7 +200,7 @@ public class SSC extends JFrame implements KeyListener{
         includeQuestions = new boolean[20];
         includeQuestions = allTrue(includeQuestions);
         difficulties = new boolean[2];
-        difficulties[0]=true;
+        difficulties = allTrue(difficulties);
         gravity = new String[7];
         gravity[0] = "Earth (9.81)";
         gravity[1] = "10";
@@ -561,11 +561,27 @@ public class SSC extends JFrame implements KeyListener{
                 NBans[EorH]=NPermabans;
                 bans=resetBans(bans,EorH);
             }
-            rngD[i][0]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][5]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][6]),decimalPlaces);
-            rngD[i][1]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][7]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][8]),decimalPlaces);
-            rngD[i][2]=RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][9]),Integer.parseInt(r[0][rng[i][0]][rng[i][1]][10]),decimalPlaces);
+            try {
+                rngD[i][0] = RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][5]), Integer.parseInt(r[0][rng[i][0]][rng[i][1]][6]), decimalPlaces);
+            } catch (NumberFormatException numberFormatException) {
+                rngD[i][0] = Double.parseDouble(r[0][rng[i][0]][rng[i][1]][5]);
+            }
+            try {
+                rngD[i][1] = RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][7]), Integer.parseInt(r[0][rng[i][0]][rng[i][1]][8]), decimalPlaces);
+            } catch (NumberFormatException numberFormatException) {
+                rngD[i][1] = Double.parseDouble(r[0][rng[i][0]][rng[i][1]][7]);
+            }
+            try {
+                rngD[i][2] = RNG(Integer.parseInt(r[0][rng[i][0]][rng[i][1]][9]), Integer.parseInt(r[0][rng[i][0]][rng[i][1]][10]), decimalPlaces);
+            } catch (NumberFormatException numberFormatException) {
+                if(Double.parseDouble(r[0][rng[i][0]][rng[i][1]][9])!=42){
+                    rngD[i][2] = Double.parseDouble(r[0][rng[i][0]][rng[i][1]][9]);
+                }else{
+                    rngD[i][2] = FT;
+                }
+            }
         }
-        
+        System.out.println(Arrays.deepToString(rngD));
         String[][] rngDS=new String[NQuestions][3];
         if(decimalPlaces==0){
             for(int i=0;i<NQuestions;i++){
@@ -591,7 +607,7 @@ public class SSC extends JFrame implements KeyListener{
         }
         
         for(int i=0;i<NQuestions;i++){
-//            System.out.println(Arrays.deepToString(rngDS));
+            System.out.println(Arrays.deepToString(rngDS));
             String question=i+1+". ";
             question+=r[0][rng[i][0]][rng[i][1]][1];
             question+=rngDS[i][0];
@@ -615,6 +631,7 @@ public class SSC extends JFrame implements KeyListener{
         //Answers document
         if(makeAnswers){
             docNameA=docName+" - Answers";
+            InOut.write(docNameA, "Use the suvat calculator and the known values to see a mathematical explanation of how the final answer was found.");
             for(int i=0;i<NQuestions;i++){
                 
                 //Display the question
@@ -738,6 +755,7 @@ public class SSC extends JFrame implements KeyListener{
                 }
                 explain+=r[1][rng[i][0]][rng[i][1]][6];
                 
+                InOut.write(docNameA, "");
                 InOut.write(docNameA,question);
                 InOut.write(docNameA,"");
                 InOut.write(docNameA,explain);

@@ -360,7 +360,7 @@ public class Interface extends JComponent implements MouseListener, MouseMotionL
             g.drawString("Create", 370, 700);
             
             g.setFont(medium);
-            g.drawString(SSC.arrayToString(SSC.createInput[0]),298,139);
+            g.drawString(SSC.arrayToString(SSC.createInput[0]),305,139);
             g.drawString(SSC.decimalPlaces+"", 310, 198);
             
             g.setFont(small);

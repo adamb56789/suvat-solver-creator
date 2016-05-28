@@ -390,393 +390,393 @@ A cyclist hits a wall at
 _
 Hard Q1
 0
-a
-b
-c
-d
-0
-10
-0
-10
+A car travels 
+ m. If the car is capable of decelerating at 
+ m/s/s, and it does this for 
+ seconds, then how fast was the car going before it started to break?
+20
+100
+-3
+-1
 0
 10
 _
 Hard Q2
 0
-a
-b
-c
-d
-0
+
+An alien comes to planet Earth to compete in the olympics. The alien is capable of accelerating constantly at 
+ m/s/s, and when it competes in athletics, it runs a single lap of the track in 
+ seconds. How fast is the alien running as it crosses the finish line? Keep it in mind that the alien is capable of turning invisible, so it could have started the race when it was already moving.
+42
+400
+1
+69
 10
-0
-10
-0
-10
+50
 _
 Hard Q3
 0
-a
-b
-c
-d
+An alien skydiver on an alien planet with no atmosphere jumps out of a plane 
+
+ m up. He forgot that parachutes would not work with no atmosphere, and after 
+ seconds he hits the ground. How fast was he going when he hit the ground?
+500
+5000
+42
 0
 10
-0
-10
-0
-10
+100
 _
 Hard Q4
 0
-a
-b
-c
-d
+Adam travels to an alien planet to test its gravity, and he drops a rock off a 
+
+ m high cliff. If it takes 
+ seconds for the rock to hit the ground, what is the acceleration due to gravity on this planet?
+50
+500
+42
 0
-10
-0
-10
-0
+1
 10
 _
 Hard Q5
 0
-a
-b
-c
-d
-0
+A sheep jumps off a train, and it continues to move forward for 
+ m before it hits the ground. If the sheep is moving at 
+ m/s as it hit the ground after being in the air for 
+ second, then what was the velocity of the train?
+2
+5
 10
-0
-10
-0
-10
+100
+1
+69
 _
 Hard Q6
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+A cat is riding a rocket sled, and the rocket sled hits a solid wall, and stops instantly. If the cat goes over the wall, and hits another wall after 
+b m at a speed of 
+ m/s after 
+ second, how much did the cat decelerate before it hit the wall? Do you think that it survived?
+5
+20
+100
+200
+1
+69
 _
 Hard Q7
 0
-a
-b
-c
-d
+Adam Tower, a super-modern skyscraper which was officially declared as one of the wonders of the world, has 126 stories, and each floor is 3 m in height (the ground floor is floor 1). A ball is dropped from the highest floor (at floor level). If a sensor is positioned at floor level on floor number 71, and the ball passes directly in front of the sensor, what speed will it record?
+
+
+
+42
+165
+42
 0
-10
-0
-10
-0
-10
+42
+9.81
 _
 Hard Q8
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+
+An asteroid enters the stratosphere at 
+ m/s, and the air resistance causes it to decelerate at 
+ m/s/s. How much time is there from when the asteroid enters the stratosphere to when it lands on the Earth?
+42
+50000
+5000
+15000
+-400
+-200
 _
 Hard Q9
 0
-a
-b
-c
-d
+A kangaroo is capable of jumping to a height of 
+ m. Determine the takeoff speed of the kangaroo. 
+G = 
+
+2
+3
+42
 0
-10
-0
-10
-0
-10
+-9.81
+69
 _
 Hard Q10
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+A sniper shoots at a target 
+ m away (from the end of the rifle). If the bullet strikes the target at 
+ m/s, and it was decelerating at 
+ m/s/s since it left the gun, how long did it take for the bullet to travel from the end of the barrel of the gun?
+500
+1000
+500
+1000
+-2
+-1
 _
 Hard Q11
 0
-a
-b
-c
-d
+A robot called bob has been developed that can compete in sprinting events. Bob is capable of unlimited speeds, but he is only able to accelerate at a set pace. If Bob runs a 
+
+ m race, and he has reached 
+ m/s by the time that he passes the finish line, how fast can Bob accelerate?
+50
+200
+42
 0
-10
-0
-10
-0
-10
+2
+15
 _
 Hard Q12
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+On a road that is 
+ m long, a remote control car accelerates from 
+ to 
+ m/s. How long does this take?
+20
+100
+1
+3
+4
+6
 _
 Hard Q13
 0
-a
-b
-c
-d
-0
+A car brakes and slows down from 
+ m/s to 
+ m/s, which takes 
+ seconds. How much distance did the car cover during this time?
 10
-0
-10
-0
-10
+20
+1
+9
+1
+5
 _
 Hard Q14
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+A shopper accelerates a shopping trolley from 
+ to 
+ m/s, which takes 
+ seconds. What was the trolley's acceleration?
+0.5
+69
+1
+69
+1
+5
 _
 Hard Q15
-0
-a
-b
-c
-d
-0
-10
-0
-10
-0
+1
+If somebody throws can object into a hole downwards at 
+
+ m/s, and the object touches the bottom of the hole after 
+ seconds, then how deep is the hole? G = 
+2
+5
+42
+8024
+1
 10
 _
 Hard Q16
 0
-a
-b
-c
-d
-0
+A car traveling at 
+ m/s accelerates at a rate of 
+ m/s/s for 
+ seconds. What is its velocity?
+5
 10
-0
-10
-0
-10
+1
+5
+1
+5
 _
 Hard Q17
+1
+
+Somebody drops their picnic lunch out of a hot air balloon, and it hits the ground at 
+
+ m/s. How high up is the hot air balloon? G = 
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+20
+100
+42
+8024
 _
 Hard Q18
-0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+1
+Fred throws a tennis ball into the air at 
+ m/s (in the downwards direction), and when he catches it, it is going at 
+ m/s. What is the air time of the ball? G = 
+
+-5
+-4
+2
+3
+42
+8024
 _
 Hard Q19
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+A jogger accelerates to 
+ m/s, with an acceleration of 
+ m/s/s, which takes 
+ seconds. How much distance does he cover during this time?
+2
+3
+1
+2
+1
+2
 _
 Hard Q20
 0
-a
-b
-c
-d
-0
+A family car reaches 
+ m/s, after accelerating at 
+ m/s/s for 
+ seconds. How fast was it going beforehand?
+5
 10
-0
-10
-0
-10
+1
+3
+2
+5
 _
 Hard Q21
 0
-a
-b
-c
-d
-0
+An object travels 
+ m while accelerating at 
+ m/s/s for 
+ seconds. How fast was it traveling at the beginning and the end of this time?
 10
-0
+100
+2
 10
-0
+1
 10
 _
 Hard Q22
 0
-a
-b
-c
-d
-0
+An object travels 
+ m with an initial velocity of 
+ m/s. If it takes 
+ seconds for this to happen, then what was its acceleration, and how fast was it going at the end?
+100
+1000
+-10
 10
-0
-10
-0
+1
 10
 _
 Hard Q23
 0
-a
-b
-c
-d
-0
+After moving 
+ m, an object is traveling at 
+ m/s. If this takes 
+ seconds, then what was its acceleration? How fast was it going at the start?
+100
+1000
 10
-0
-10
-0
-10
+100
+5
+30
 _
 Hard Q24
+1
+The Mythbusters drop buster, a crash test dummy, from a helicopter that is 
+ m in the air. How long does it take for buster to reach the ground, and when he does, how fast is he travelling? G = 
+
+
+50
+500
+42
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+42
+8024
 _
 Hard Q25
 0
-a
-b
-c
-d
-0
+A vehicle speeds down a hill for 
+ m. If it is traveling at 
+ m/s after accelerating at 
+ m/s/s, what was its velocity at the start, and how long did it take to reach the end of the distance?
 10
-0
+20
+5
 10
-0
-10
+2
+5
 _
 Hard Q26
 0
-a
-b
-c
-d
-0
+An object travels 
+ m with an initial velocity of 
+ m/s and a final velocity of 
+ m/s. What was its acceleration, and how long did it take for the object to travel this distance?
 10
-0
+100
+1
 10
-0
+1
 10
 _
 Hard Q27
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
-10
+A fighter jet accelerates from 
+
+ m/s to mach 1 (the speed of sound). If this took 
+ seconds, then what was its acceleration? How much distance did it cover during this time?
+1
+300
+42
+340
+5
+50
 _
 Hard Q28
 0
-a
-b
-c
-d
-0
-10
-0
-10
-0
+A tank is moving at 
+ m/s. If it accelerates at 
+ m/s for 
+ seconds, then how fast will it be travelling? How much distance did it cover during this time?
+1
+5
+1
+3
+1
 10
 _
 Hard Q29
 0
-a
-b
-c
-d
-0
+A jeep accelerates from 
+ m/s to 
+m/s. If its acceleration was 
+ m/s/s, then how much distance did it cover? How long did this take?
+1
 10
-0
-10
-0
-10
+11
+20
+1
+5
 _
 Hard Q30
 0
-a
-b
-c
-d
-0
+An object is traveling at 
+ m/s. If it was accelerating at 
+ m/s/s for the previous 
+ seconds, then what was its speed initially? How much distance did it cover during this time?
 10
-0
+100
+1
 10
-0
-10
+2
+20
 _
 Easy E1
 It took 
@@ -1058,8 +1058,8 @@ he initial velocity of the UFO (u) =
  m, so s = 
 , and t = 
 .
-231130
 
+231130
 
 
 
@@ -1169,391 +1169,391 @@ At the bottom of the hill the cyclist is traveling at
 
 _
 Hard E1
-A
-B
-C
-D
-
-
-
-
+The car traveled 
+ m, so s = 
+. It was slowing down at a rate of 
+m/s/s, so a = 
+, and this takes 
+ seconds, so t = 
+.
+112233
 
 
 
 _
 Hard E2
-A
-B
-C
-D
-
-
-
-
+The alien can accelerate at 
+ m/s, so a = 
+. I takes 
+ seconds for the alien to complete the race, so t = 
+. We know that s = 
+ m because one lap of the athletics track in the olympics is 
+ m.
+223311
 
 
 
 _
 Hard E3
-A
-B
-C
-D
+The alien jumps out of the plane 
+ m from the ground, so s = 
+ (aliens have probably figured out how to fly planes without an atmosphere). He hits the ground after 
+ seconds, so t = 
+, but we still need one more variable to be able to use the suvat equations. We know that the alien was not moving downwards before it jumped out of the plane, so the initial velocity (u) must be 
+.
 
-
-
-
+113320
 
 
 
 _
 Hard E4
-A
-B
-C
-D
+The only variable that isn’t directly given here is the initial velocity - we know that it is 
+ because the rock is not moving just as Adam drops it.
 
 
 
 
+
+200000
 
 
 
 _
 Hard E5
-A
-B
-C
-D
+The sheep moved 
+ m relative to the Earth after it jumped off the train, so s = 
+. The sheep is moving at 
+m/s when it hits the ground, so we make that the final velocity. The time is obviously just 
+ second.
 
 
-
-
+112300
 
 
 
 _
 Hard E6
-A
-B
-C
-D
-
-
-
-
+The cat travels 
+ m in 
+ seconds, so s = 
+, and t = 
+. When the cat hits the wall, it is traveling at 
+ m/s, so v = 
+. The cat survived because it was actually a stuffed toy, and the wall was made of cardboard boxes.
+131322
 
 
 
 _
 Hard E7
-A
-B
-C
-D
+There are 126 floors in Adam Tower, and the ball is dropped from the top floor at floor level. To find out how high off the ground the ball was dropped we just have to multiply 125 by 3, which is 375 m (125 because the height of the top floor is not included). The sensor is placed at floor level of floor 71, so we use the same technique to work out how high off the ground that is. 70 multiplied by 3 is 210 m. Once we know the heights of the sensor and the ball, we can subtract the height of the sensor from the height of the ball to get the distance that the ball fell. This is 
+ m, so s = 
+. The ball starts off not moving, so u = 
+. We know that the acceleration due to gravity is 
+ m/s/s, because we know for sure that Adam Tower is on the Earth - it is a wonder of the world after all.
 
 
-
-
+112300
 
 
 
 _
 Hard E8
-A
-B
-C
-D
+The stratosphere ends 50 km above the earth, so we just multiply that be a thousand to get the distance in meters - s = 
+ m. The asteroid is traveling at x when it enters the stratosphere, so we know that u = 
+. The asteroid is decelerating at 
+ m/s/s, so a = 
+.
 
 
-
-
+122330
 
 
 
 _
 Hard E9
-A
-B
-C
-D
+The kangaroo can reach 
+ m, so s = 
+. We are trying to find the take off speed required to reach this, so we need to find the initial velocity. We know that the final velocity is 
+, because that will be the velocity of the kangaroo for an infinitesimal amount of time at the peak of the jump. G was 9.81 m/s/s, but we have to make it negative, because the takeoff speed of the kangaroo will be in the upward direction, but gravity is acceleration in the downward direction. This means that a = 
+.
 
 
-
-
+112300
 
 
 
 _
 Hard E10
-A
-B
-C
-D
-
-
-
-
+The target is 
+ m away from the end of the rifle, and the bullet is traveling at 
+ m/s when it hits the target, so s = 
+, and v = 
+. The deceleration of the bullet was 
+ m/s/s, so a = 
+.
+121233
 
 
 
 _
 Hard E11
-A
-B
-C
-D
+The race is 
+ m long, so s = 
+. Normally at the start of the race, the contestants aren’t moving, so u = 
+. He crosses the finish line at 
+ m/s, so v = 
+.
 
-
-
-
+112330
 
 
 
 _
 Hard E12
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E13
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E14
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E15
-A
-B
-C
-D
-
-
-
-
+The person throws the object at 
+ m/s, so u = 
+. It takes 
+ seconds for it to reach the bottom, and G was 
+, so t = 
+, and a = 
+.
+113232
 
 
 
 _
 Hard E16
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E17
-A
-B
-C
-D
+When they drop their lunch, the lunch is not moving, so u = 
+. It hits the grounds at 
+ m/s, so v = 
+. G was 
+, so a = 
+.
 
-
-
-
+122330
 
 
 
 _
 Hard E18
-A
-B
-C
-D
+The initial velocity is 
+, and the final velocity is 
+. G was 
+, so a = 
+.
 
 
-
-
+123300
 
 
 
 _
 Hard E19
-A
-B
-C
-D
+The final velocity was 
+, the acceleration was 
+, and the time was 
+.
 
 
 
-
+123000
 
 
 
 _
 Hard E20
-A
-B
-C
-D
+The final velocity was 
+, the acceleration was 
+, and the time was 
+.
 
 
 
-
+123000
 
 
 
 _
 Hard E21
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E22
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E23
-A
-B
-C
-D
+The displacement is 
+, the final velocity is 
+, and the time is 
+.
 
 
 
-
+123000
 
 
 
 _
 Hard E24
-A
-B
-C
-D
+The helicopter is 
+ m in the air, so s = 
+. When they dropped buster, we know that he was not moving, so u = 
+. G was 
+, so a = 
+.
 
-
-
-
+112330
 
 
 
 _
 Hard E25
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E26
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E27
-A
-B
-C
-D
+The initial velocity of the jet is 
+ m/s, and it accelerates to the speed of sound, which is 
+ m/s, so v = 
+. The time was 
+.
 
 
-
-
+122300
 
 
 
 _
 Hard E28
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E29
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
 _
 Hard E30
-A
-B
-C
-D
 
 
 
 
+
+
+
+000000
 
 
 
